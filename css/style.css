@@ -36,3 +36,7 @@ html, body {
 .menu>a:hover {
 	text-decoration: none;
 }
+
+.menu>a.active>span {
+	border-bottom: 3px solid #b4e7f8;
+}
