@@ -81,6 +81,11 @@ html, body {
 	letter-spacing: 2px;
 }
 
+#schedule-feed {
+	margin: 0 25px;
+	color: white;
+}
+
 .menu>a {
 	font-family: 'Nunito', sans-serif;
 	font-weight: 600;
