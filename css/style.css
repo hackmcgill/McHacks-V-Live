@@ -1,0 +1,38 @@
+html, body {
+	height: 100%;
+}
+
+.row {
+	height: 100%;
+}
+
+#sidebar {
+	background-color: #34495e;
+	height: 100%;
+}
+
+#main {
+	background-color: #ecf0f1;
+	height: 100%;
+	padding-left: 0 !important;
+}
+
+#menu-bar {
+	height: 100px;
+	background-color: #ecf0f1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu>a {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 600;
+	letter-spacing: 1px;
+	font-size: 1.25em;
+	padding: 0 2em 0 2em;
+}
+
+.menu>a:hover {
+	text-decoration: none;
+}
