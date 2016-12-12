@@ -1,2 +1,1 @@
-# live
-HackUCI Live Website
+# HackUCI Live
