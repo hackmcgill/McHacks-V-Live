@@ -40,3 +40,31 @@ html, body {
 .menu>a.active>span {
 	border-bottom: 3px solid #b4e7f8;
 }
+
+#content {
+	padding: 0 5% 0 5%;
+}
+
+.card {
+	width: 100%;
+	background-color: #34495e;
+	border-radius: 2px;
+	color: #34495e;
+	box-shadow: 2px 2px 1px #2c3e50;
+	margin-bottom: 2.5%;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.card-timestamp {
+	padding: 1.5% 2% 1.5% 3%;
+	color: #ecf0f1;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 700;
+}
+
+.card-content {
+	padding: 1.5% 3% 1.5% 2%;
+	color: #ecf0f1;
+	font-family: 'Nunito', sans-serif;
+}
