@@ -1,5 +1,12 @@
 $(function() {
 	$("#mentor").hide();
+	$(".event-details").hide();
+
+	$(".schedule-event").hover(function() {
+		$(this).find(".event-details").slideDown();
+	}, function() {
+		$(this).find(".event-details").slideUp();
+	});
 
 	$(".menu>a").click(function() {
 		$(".active").removeClass("active");
