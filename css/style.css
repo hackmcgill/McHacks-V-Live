@@ -2,8 +2,18 @@ html, body {
 	height: 100%;
 }
 
+body {
+	font-family: 'Nunito', sans-serif;
+}
+
 .row {
 	height: 100%;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /*@keyframes blinking {
@@ -18,6 +28,7 @@ html, body {
     }
 }*/
 
+/* Sidebar */
 @keyframes breathe {
     from { transform: none; }
 	50% { transform: scale(1.35); }
@@ -27,23 +38,6 @@ html, body {
 #sidebar {
 	background-color: #34495e;
 	height: 100%;
-}
-
-#main {
-	background-color: #ecf0f1;
-	height: 100%;
-	padding-left: 0 !important;
-}
-
-#menu-bar {
-	height: 100px;
-	background-color: #ecf0f1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#sidebar {
 	padding-right: 0;
 }
 
@@ -60,7 +54,6 @@ html, body {
 	justify-content: center;
 }
 
-
 #live-circle {
 	width: 10px;
 	height: 10px;
@@ -74,7 +67,6 @@ html, body {
 }
 
 #live-text {
-	font-family: 'Nunito', sans-serif;
 	font-weight: 700;
 	font-size: 32px;
 	color: white;
@@ -82,12 +74,40 @@ html, body {
 }
 
 #schedule-feed {
-	margin: 0 25px;
+	margin: 0 10%;
 	color: white;
 }
 
+.schedule-event {
+	background: rgba(255,255,255,0.25);
+	border-radius: 3px;
+	padding: 3% 0;
+}
+
+.event-time {
+	font-weight: 700;
+}
+
+.event-name {
+	font-weight: 400;
+}
+
+.event-details {
+	display: none;
+	font-weight: 300;
+	font-size: 0.9em;
+}
+
+/* Top Nav Bar */
+#menu-bar {
+	height: 100px;
+	background-color: #ecf0f1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .menu>a {
-	font-family: 'Nunito', sans-serif;
 	font-weight: 600;
 	letter-spacing: 1px;
 	font-size: 1.25em;
@@ -102,13 +122,21 @@ html, body {
 	border-bottom: 3px solid #b4e7f8;
 }
 
+/* Main Container */
+#main {
+	background-color: #ecf0f1;
+	height: 100%;
+	padding-left: 0 !important;
+}
+
 #content {
 	padding: 0 5% 0 5%;
 }
 
+/* Card Element */
 .card {
 	width: 100%;
-	background-color: #34495e;
+	background-color: rgba(52, 152, 219, 0.9);
 	border-radius: 2px;
 	color: #34495e;
 	box-shadow: 2px 2px 1px #2c3e50;
@@ -120,19 +148,16 @@ html, body {
 .card-timestamp {
 	padding: 1.5% 2% 1.5% 3%;
 	color: #ecf0f1;
-	font-family: 'Nunito', sans-serif;
 	font-weight: 700;
 }
 
 .card-content {
 	padding: 1.5% 3% 1.5% 2%;
 	color: #ecf0f1;
-	font-family: 'Nunito', sans-serif;
 }
 
 /* Mentor */
 .mentor-header {
-	font-family: 'Nunito', sans-serif;
 	font-weight: 400;
 }
 
