@@ -136,7 +136,7 @@ body {
 /* Card Element */
 .card {
 	width: 100%;
-	background-color: #34495e;
+	background-color: rgba(52, 152, 219, 0.9);
 	border-radius: 2px;
 	color: #34495e;
 	box-shadow: 2px 2px 1px #2c3e50;
