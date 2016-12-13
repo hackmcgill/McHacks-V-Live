@@ -129,3 +129,26 @@ html, body {
 	color: #ecf0f1;
 	font-family: 'Nunito', sans-serif;
 }
+
+/* Mentor */
+.mentor-header {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 400;
+}
+
+#mentor .form-group .col-sm-1 {
+	padding-left: 0 !important;
+	text-align: left !important;
+}
+
+#mentor .form-group {
+	padding-left: 3%;
+}
+
+#mentor .radio-inline {
+	padding-top: 0 !important;
+}
+
+#mentor .btn {
+	margin-left: 1.25%;
+}
