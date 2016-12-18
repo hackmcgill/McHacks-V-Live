@@ -16,6 +16,10 @@ body {
 	align-items: center;
 }
 
+#announcements, #map, #mentor, #prizes, #faq {
+	display: none;
+}
+
 /*@keyframes blinking {
     49% {
         opacity: 1
