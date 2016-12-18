@@ -7,6 +7,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="css/style.css">
 
 	<!--[if lt IE 9]>
@@ -15,10 +17,53 @@
 </head>
 
 <body>
+	<div class="row">
+		<div id="sidebar" class="col-md-3">
+			<img id="sidebar-logo" src="http://hackuci.com/images/logo-2017.png">
+		</div>
+
+		<div id="main" class="col-md-9">
+			<div id="content">
+				<section id="announcements">
+					<h2>Announcements</h2>
+					<div id="new-announcement">
+						<div class="card">
+							<div class="card-content">
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label for="">Description</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+									<button type="submit" class="btn btn-default">Post Announcement!</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div id="announcements-list">
+						<!-- <div class="card row">
+							<div class="card-timestamp col-md-1">
+								4:20PM
+							</div>
+							<div class="card-content col-md-10">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum mauris sit amet orci laoreet tempor. Ut vestibulum id urna sit amet malesuada.
+							</div>
+							<div class="card-delete center col-md-1">
+								<a href="#">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div> -->
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
 
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/moment.js"></script>
 	<script src="js/script.js"></script>
 </body>
 
