@@ -1,3 +1,14 @@
+// Firebase config
+var config = {
+	apiKey: "AIzaSyDpcqm16yCXJC26V7LSUk3YKHA8hv-Tt9w",
+	authDomain: "hackuci-live.firebaseapp.com",
+	databaseURL: "https://hackuci-live.firebaseio.com",
+	storageBucket: "hackuci-live.appspot.com",
+	messagingSenderId: "137852911349"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+
 $(function() {
 	$(".event-details").hide();
 
@@ -54,4 +65,29 @@ $(function() {
 			})
 		}
 	});
+
+	// Listen for announcements
+	var announcementsRef = firebase.database().ref('announcements');
+	announcementsRef.on('value', function(snapshot) {
+		$("#announcements").empty();
+		snapshot.forEach(function(item) {
+			var key = item.key;
+			var datetimeRef = firebase.database().ref('announcements/' + key + '/datetime');
+			datetimeRef.on('value', function(datetimeSnapshot) {
+				var datetime = datetimeSnapshot.val();
+				var messageRef = firebase.database().ref('announcements/' + key + '/message');
+				messageRef.on('value', function(messageSnapshot) {
+					var message = messageSnapshot.val();
+					pushAnnouncement(datetime, message);
+				});
+			});
+		})
+	});
+
+	var pushAnnouncement = function(datetime, message) {
+		var announcementsList = $("#announcements");
+		var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '</div><div class="card-content col-md-11">' + message + '</div></div>';
+
+		announcementsList.prepend(card);
+	}
 });
