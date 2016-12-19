@@ -30,7 +30,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 					firebase.database().ref('announcements').push({
 						"datetime": moment().format('h:mm a'),
 						"message": text
-					})
+					});
+
+					firebase.database().ref('notification').set({
+						"message": text
+					});
 				}
 			});
 

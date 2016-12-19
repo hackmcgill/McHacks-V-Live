@@ -66,16 +66,25 @@ $(function() {
 		}
 	});
 
-	// Listen for announcements
+	listenAnnouncements();
+	listenNotifications();
+});
+
+// Listen for announcements
+var listenAnnouncements = function() {
 	var announcementsRef = firebase.database().ref('announcements');
 	announcementsRef.on('value', function(snapshot) {
 		$("#announcements").empty();
+		var counter = 0;
 		snapshot.forEach(function(item) {
+			counter++;
 			var key = item.key;
 			var datetimeRef = firebase.database().ref('announcements/' + key + '/datetime');
+
 			datetimeRef.on('value', function(datetimeSnapshot) {
 				var datetime = datetimeSnapshot.val();
 				var messageRef = firebase.database().ref('announcements/' + key + '/message');
+
 				messageRef.on('value', function(messageSnapshot) {
 					var message = messageSnapshot.val();
 					pushAnnouncement(datetime, message);
@@ -83,11 +92,39 @@ $(function() {
 			});
 		})
 	});
+}
 
-	var pushAnnouncement = function(datetime, message) {
-		var announcementsList = $("#announcements");
-		var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '</div><div class="card-content col-md-11">' + message + '</div></div>';
+// Listen for new announcements
+var listenNotifications = function() {
+	var notificationRef = firebase.database().ref('notification/message');
+	var init = true;
+	notificationRef.on('value', function(snapshot) {
+		if (init)
+			Notification.requestPermission();
+		else
+			notifyAnnouncement(snapshot.val());
+		setTimeout(function() {
+			init = false;
+		}, 100);
+	})
+}
 
-		announcementsList.prepend(card);
+// Notification for announcements
+var notifyAnnouncement = function(message) {
+	console.log(message);
+	if (window.Notification && Notification.permission !== "denied") {
+		Notification.requestPermission(function(status) {
+			var notification = new Notification("HackUCI", {
+				body: message,
+				icon: 'images/notif-logo.png'
+			});
+		});
 	}
-});
+}
+
+var pushAnnouncement = function(datetime, message) {
+	var announcementsList = $("#announcements");
+	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '</div><div class="card-content col-md-11">' + message + '</div></div>';
+
+	announcementsList.prepend(card);
+}
