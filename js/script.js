@@ -67,12 +67,12 @@ $(function() {
 	});
 
 	listenAnnouncements();
+	listenNotifications();
 });
 
 // Listen for announcements
 var listenAnnouncements = function() {
 	var announcementsRef = firebase.database().ref('announcements');
-	var init = true;
 	announcementsRef.on('value', function(snapshot) {
 		$("#announcements").empty();
 		var counter = 0;
@@ -87,14 +87,6 @@ var listenAnnouncements = function() {
 
 				messageRef.on('value', function(messageSnapshot) {
 					var message = messageSnapshot.val();
-					console.log(counter + " " + snapshot.numChildren());
-					if (init)
-						Notification.requestPermission();
-					if (counter === snapshot.numChildren() && init === false)
-						notifyAnnouncement(message);
-					setTimeout(function() {
-						init = false;
-					}, 100);
 					pushAnnouncement(datetime, message);
 				});
 			});
@@ -102,6 +94,22 @@ var listenAnnouncements = function() {
 	});
 }
 
+// Listen for new announcements
+var listenNotifications = function() {
+	var notificationRef = firebase.database().ref('notification/message');
+	var init = true;
+	notificationRef.on('value', function(snapshot) {
+		if (init)
+			Notification.requestPermission();
+		else
+			notifyAnnouncement(snapshot.val());
+		setTimeout(function() {
+			init = false;
+		}, 100);
+	})
+}
+
+// Notification for announcements
 var notifyAnnouncement = function(message) {
 	console.log(message);
 	if (window.Notification && Notification.permission !== "denied") {
