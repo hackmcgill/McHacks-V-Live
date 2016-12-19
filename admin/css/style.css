@@ -1,3 +1,27 @@
+#admin-status {
+	text-align: center;
+	color: #ecf0f1;
+}
+
+#admin-text {
+	letter-spacing: 2px;
+	font-weight: 700;
+	font-size: 2em;
+}
+
+#admin-email {
+	font-size: 1.25em;
+	letter-spacing: 1px;
+	font-weight: 300;
+}
+
+#signout-btn {
+	color: #ecf0f1;
+	position: absolute;
+	left: 42%;
+	bottom: 15px;
+}
+
 #announcements {
 	display: block;
 }
