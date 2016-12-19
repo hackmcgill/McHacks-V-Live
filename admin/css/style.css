@@ -1,0 +1,57 @@
+#admin-status {
+	text-align: center;
+	color: #ecf0f1;
+}
+
+#admin-text {
+	letter-spacing: 2px;
+	font-weight: 700;
+	font-size: 2em;
+}
+
+#admin-email {
+	font-size: 1.25em;
+	letter-spacing: 1px;
+	font-weight: 300;
+}
+
+#signout-btn {
+	color: #ecf0f1;
+	position: absolute;
+	left: 42%;
+	bottom: 15px;
+}
+
+#announcements {
+	display: block;
+}
+
+#announcements h2 {
+	font-weight: 700;
+	font-size: 2em;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#announcements .form-group {
+	margin-left: 0;
+	margin-right: 15px;
+}
+
+.card-timestamp {
+	width: 12.33333333% !important;
+}
+
+.card-content {
+	padding: 1.5% 0 1.5% 2%;
+	width: 78.66666667% !important;
+}
+
+.card-delete {
+	padding-top: 1.5%;
+}
+
+.card-delete i {
+	color: #ecf0f1;
+	font-size: 1.5em;
+}
