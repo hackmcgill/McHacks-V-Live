@@ -57,6 +57,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 			// Sign out event handler
 			$("body").on("click", "#signout-btn", function () {
 				firebase.auth().signOut().then(function() {
+					localStorage.removeItem("shownLoggedInMessage");
 					swal("Success!", "You have signed out", "success");
 				}, function(error) {
 					swal("Error!", error.code + ": " + error.message, "error");
