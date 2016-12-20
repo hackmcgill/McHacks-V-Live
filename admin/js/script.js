@@ -17,6 +17,22 @@ firebase.auth().onAuthStateChanged(function(user) {
 				localStorage.setItem("shownLoggedInMessage", "true");
 			}
 
+			// Menu tabs event handler
+			$("#admin-menu>ul>li>a").click(function() {
+				// Switch underline from active tab to clicked tab
+				$(".active").removeClass("active");
+				$(this).parent().addClass("active");
+
+				var tab = $(this).attr('href');
+
+				// Hide the current tab and display the new tab
+				$(".active-tab").fadeToggle(400, "swing", function() {
+					$(".active-tab").removeClass("active-tab");
+					$(tab).fadeToggle();
+					$(tab).addClass("active-tab");
+				})
+			});
+
 			displayAdminInfo();
 
 			listenAnnouncements();
@@ -38,7 +54,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 				}
 			});
 
-			// Delete icon event handler
+			// Delete announcement icon event handler
 			$("body").on("click", ".card-delete a", function () {
 				var id = $(this).attr('id');
 				swal({

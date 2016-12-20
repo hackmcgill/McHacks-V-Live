@@ -1,6 +1,6 @@
 #admin-status {
 	text-align: center;
-	color: #ecf0f1;
+	color: white;
 }
 
 #admin-text {
@@ -15,6 +15,24 @@
 	font-weight: 300;
 }
 
+#admin-menu {
+	padding-top: 10%;
+}
+
+.nav-pills>li.active>a {
+	background-color: #3498db;
+	color: white;
+}
+
+.nav>li>a {
+	color: white;
+}
+
+.nav>li>a:hover {
+	background-color: #2980b9;
+	color: white;
+}
+
 #signout-btn {
 	color: #ecf0f1;
 	position: absolute;
@@ -26,7 +44,7 @@
 	display: block;
 }
 
-#announcements h2 {
+h2 {
 	font-weight: 700;
 	font-size: 2em;
 	margin-top: 40px;

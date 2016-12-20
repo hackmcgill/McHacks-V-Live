@@ -23,13 +23,19 @@
 			<div id="admin-status">
 				<span id="admin-text">ADMIN</span><br/>
 				<span id="admin-email"></span><br/>
+				<div id="admin-menu" class="center">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="#announcements">Announcements</a></li>
+						<li><a href="#mentor">Mentor</a></li>
+					</ul>
+				</div>
 				<a href="#" id="signout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
 			</div>
 		</div>
 
 		<div id="main" class="col-md-9">
 			<div id="content">
-				<section id="announcements">
+				<section id="announcements" class="active-tab">
 					<h2>Announcements</h2>
 					<div id="new-announcement">
 						<div class="card">
@@ -58,6 +64,12 @@
 								</a>
 							</div>
 						</div> -->
+					</div>
+				</section>
+
+				<section id="mentor">
+					<h2>Mentor Requests</h2>
+					<div id="mentor-list">
 					</div>
 				</section>
 			</div>
