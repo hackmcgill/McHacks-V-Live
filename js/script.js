@@ -68,6 +68,25 @@ $(function() {
 
 	listenAnnouncements();
 	listenNotifications();
+
+	// Request mentor
+	$("body").on("click", "#mentor button", function() {
+		var table = $("#tableNumber").val();
+		var tech = $("input[name=mentorTechOption]:checked").val();
+		var text = $("textarea").val();
+		if (text === "") {
+			swal("Error!", "Message is empty.", "error");
+		} else {
+			firebase.database().ref('mentor').push({
+				"datetime": moment().format('h:mm a'),
+				"table": table,
+				"tech": tech,
+				"message": text
+			});
+
+			swal("Submitted!", "A mentor will drop by shortly.", "success");
+		}
+	});
 });
 
 // Listen for announcements
