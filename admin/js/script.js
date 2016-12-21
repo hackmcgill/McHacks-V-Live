@@ -76,7 +76,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 			});
 
 			// Delete announcement icon event handler
-			$("body").on("click", ".card-delete a", function () {
+			$("body").on("click", "#announcements .card-delete a", function () {
 				var id = $(this).attr('id');
 				swal({
 					title: "Are you sure?",
@@ -92,6 +92,26 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 					var announcementsRef = firebase.database().ref('announcements/' + id);
 					announcementsRef.remove();
+				});
+			});
+
+			// Archive mentor ticket event handler
+			$("body").on("click", "#mentor .card-delete a", function () {
+				var id = $(this).attr('id');
+				swal({
+					title: "Are you sure?",
+					text: "This mentor request will be archived!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "Yes, archive it!",
+					closeOnConfirm: false,
+					html: false
+				}, function(){
+					swal("Mentor request archived!", "Please don't forget to assign a mentor to the table.", "success");
+
+					var mentorRef = firebase.database().ref('mentor/' + id);
+					mentorRef.remove();
 				});
 			});
 
@@ -163,7 +183,7 @@ var pushAnnouncement = function(key, datetime, message) {
 // Push mentor requests card
 var pushMentor = function(key, datetime, message, table, tech) {
 	var mentorList = $("#mentor-list");
-	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-md-10"><b>Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
+	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-md-10"><b>Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
 
 	mentorList.prepend(card);
 }

@@ -74,7 +74,11 @@ $(function() {
 		var table = $("#tableNumber").val();
 		var tech = $("input[name=mentorTechOption]:checked").val();
 		var text = $("textarea").val();
-		if (text === "") {
+		if (table === "") {
+			swal("Error!", "Please enter table number.", "error");
+		} else if (tech === undefined) {
+			swal("Error!", "Please select a technology.", "error");
+		} else if (text === "") {
 			swal("Error!", "Message is empty.", "error");
 		} else {
 			firebase.database().ref('mentor').push({
