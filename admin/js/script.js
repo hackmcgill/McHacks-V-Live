@@ -8,6 +8,25 @@ var config = {
 };
 firebase.initializeApp(config);
 
+$(function() {
+	// Process which tab to show upon launching
+	if (window.location.hash[0] === "#") {
+		var tab = window.location.hash;
+
+		// Add underline to the tab link
+		var btnID = tab + "-btn";
+		$(btnID).addClass("active");
+
+		// Display the tab
+		$(tab).fadeToggle();
+		$(tab).addClass("active-tab");
+	} else {
+		$("#announcements-btn").addClass("active");
+		$("#announcements").fadeToggle();
+		$("#announcements").addClass("active-tab");
+	}
+})
+
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		$(function() {
@@ -36,6 +55,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 			displayAdminInfo();
 
 			listenAnnouncements();
+
+			// listenMentor();
 
 			// Add new announcement
 			$("body").on("click", "#announcements button", function() {
@@ -96,14 +117,30 @@ var listenAnnouncements = function() {
 		$("#announcements-list").empty();
 		snapshot.forEach(function(item) {
 			var key = item.key;
-			var datetimeRef = firebase.database().ref('announcements/' + key + '/datetime');
-			datetimeRef.on('value', function(datetimeSnapshot) {
-				var datetime = datetimeSnapshot.val();
-				var messageRef = firebase.database().ref('announcements/' + key + '/message');
-				messageRef.on('value', function(messageSnapshot) {
-					var message = messageSnapshot.val();
-					pushAnnouncement(key, datetime, message);
-				});
+			var itemRef = firebase.database().ref('announcements/' + key);
+			itemRef.once('value').then(function(itemSnapshot) {
+				var datetime = itemSnapshot.val().datetime;
+				var message = itemSnapshot.val().message;
+				pushAnnouncement(key, datetime, message);
+			});
+		})
+	});
+}
+
+// Listen for mentor requests
+var listenMentor = function() {
+	var mentorRef = firebase.database().ref('mentor');
+	mentorRef.on('value', function(snapshot) {
+		$("#mentor-list").empty();
+		snapshot.forEach(function(item) {
+			var key = item.key;
+			var itemRef = firebase.database().ref('mentor/' + key);
+			itemRef.once('value').then(function(itemSnapshot) {
+				var datetime = itemSnapshot.val().datetime;
+				var message = itemSnapshot.val().message;
+				var table = itemSnapshot.val().table;
+				var tech = itemSnapshot.val().tech;
+				pushMentor(key, datetime, message, table, tech);
 			});
 		})
 	});
@@ -121,6 +158,12 @@ var pushAnnouncement = function(key, datetime, message) {
 	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '</div><div class="card-content col-md-10">' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>';
 
 	announcementsList.prepend(card);
+}
+
+// Push mentor requests card
+var pushMentor = function(key, datetime, message, table, tech) {
+	var mentorList = $("#mentor-list");
+
 }
 
 // Login popup

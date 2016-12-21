@@ -94,20 +94,13 @@ var listenAnnouncements = function() {
 	var announcementsRef = firebase.database().ref('announcements');
 	announcementsRef.on('value', function(snapshot) {
 		$("#announcements").empty();
-		var counter = 0;
 		snapshot.forEach(function(item) {
-			counter++;
 			var key = item.key;
-			var datetimeRef = firebase.database().ref('announcements/' + key + '/datetime');
-
-			datetimeRef.on('value', function(datetimeSnapshot) {
-				var datetime = datetimeSnapshot.val();
-				var messageRef = firebase.database().ref('announcements/' + key + '/message');
-
-				messageRef.on('value', function(messageSnapshot) {
-					var message = messageSnapshot.val();
-					pushAnnouncement(datetime, message);
-				});
+			var itemRef = firebase.database().ref('announcements/' + key);
+			itemRef.once('value').then(function(itemSnapshot) {
+				var datetime = itemSnapshot.val().datetime;
+				var message = itemSnapshot.val().message;
+				pushAnnouncement(datetime, message);
 			});
 		})
 	});
