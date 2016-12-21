@@ -56,7 +56,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 			listenAnnouncements();
 
-			// listenMentor();
+			listenMentor();
 
 			// Add new announcement
 			$("body").on("click", "#announcements button", function() {
@@ -163,7 +163,9 @@ var pushAnnouncement = function(key, datetime, message) {
 // Push mentor requests card
 var pushMentor = function(key, datetime, message, table, tech) {
 	var mentorList = $("#mentor-list");
+	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-md-10"><b>Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
 
+	mentorList.prepend(card);
 }
 
 // Login popup

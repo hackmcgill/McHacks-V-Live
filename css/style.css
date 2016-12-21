@@ -33,6 +33,10 @@ body>.row {
     }
 }*/
 
+.loading {
+	width: 4%;
+}
+
 /* Sidebar */
 @keyframes breathe {
     from { transform: none; }
