@@ -33,6 +33,10 @@ body>.row {
     }
 }*/
 
+.loading {
+	width: 4%;
+}
+
 /* Sidebar */
 @keyframes breathe {
     from { transform: none; }
@@ -170,9 +174,13 @@ body>.row {
 	font-weight: 400;
 }
 
-#mentor .form-group .col-sm-1 {
+#mentor .form-group .col-md-1 {
 	padding-left: 0 !important;
 	text-align: left !important;
+}
+
+#mentor .form-group .col-md-2 {
+	width: 12% !important;
 }
 
 #mentor .form-group {
@@ -184,5 +192,5 @@ body>.row {
 }
 
 #mentor .btn {
-	margin-left: 1.25%;
+	margin-left: 0.93%;
 }

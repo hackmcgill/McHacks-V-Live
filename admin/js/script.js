@@ -8,6 +8,25 @@ var config = {
 };
 firebase.initializeApp(config);
 
+$(function() {
+	// Process which tab to show upon launching
+	if (window.location.hash[0] === "#") {
+		var tab = window.location.hash;
+
+		// Add underline to the tab link
+		var btnID = tab + "-btn";
+		$(btnID).addClass("active");
+
+		// Display the tab
+		$(tab).fadeToggle();
+		$(tab).addClass("active-tab");
+	} else {
+		$("#announcements-btn").addClass("active");
+		$("#announcements").fadeToggle();
+		$("#announcements").addClass("active-tab");
+	}
+})
+
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		$(function() {
@@ -17,9 +36,27 @@ firebase.auth().onAuthStateChanged(function(user) {
 				localStorage.setItem("shownLoggedInMessage", "true");
 			}
 
+			// Menu tabs event handler
+			$("#admin-menu>ul>li>a").click(function() {
+				// Switch underline from active tab to clicked tab
+				$(".active").removeClass("active");
+				$(this).parent().addClass("active");
+
+				var tab = $(this).attr('href');
+
+				// Hide the current tab and display the new tab
+				$(".active-tab").fadeToggle(400, "swing", function() {
+					$(".active-tab").removeClass("active-tab");
+					$(tab).fadeToggle();
+					$(tab).addClass("active-tab");
+				})
+			});
+
 			displayAdminInfo();
 
 			listenAnnouncements();
+
+			listenMentor();
 
 			// Add new announcement
 			$("body").on("click", "#announcements button", function() {
@@ -38,8 +75,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 				}
 			});
 
-			// Delete icon event handler
-			$("body").on("click", ".card-delete a", function () {
+			// Delete announcement icon event handler
+			$("body").on("click", "#announcements .card-delete a", function () {
 				var id = $(this).attr('id');
 				swal({
 					title: "Are you sure?",
@@ -55,6 +92,26 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 					var announcementsRef = firebase.database().ref('announcements/' + id);
 					announcementsRef.remove();
+				});
+			});
+
+			// Archive mentor ticket event handler
+			$("body").on("click", "#mentor .card-delete a", function () {
+				var id = $(this).attr('id');
+				swal({
+					title: "Are you sure?",
+					text: "This mentor request will be archived!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "Yes, archive it!",
+					closeOnConfirm: false,
+					html: false
+				}, function(){
+					swal("Mentor request archived!", "Please don't forget to assign a mentor to the table.", "success");
+
+					var mentorRef = firebase.database().ref('mentor/' + id);
+					mentorRef.remove();
 				});
 			});
 
@@ -80,14 +137,30 @@ var listenAnnouncements = function() {
 		$("#announcements-list").empty();
 		snapshot.forEach(function(item) {
 			var key = item.key;
-			var datetimeRef = firebase.database().ref('announcements/' + key + '/datetime');
-			datetimeRef.on('value', function(datetimeSnapshot) {
-				var datetime = datetimeSnapshot.val();
-				var messageRef = firebase.database().ref('announcements/' + key + '/message');
-				messageRef.on('value', function(messageSnapshot) {
-					var message = messageSnapshot.val();
-					pushAnnouncement(key, datetime, message);
-				});
+			var itemRef = firebase.database().ref('announcements/' + key);
+			itemRef.once('value').then(function(itemSnapshot) {
+				var datetime = itemSnapshot.val().datetime;
+				var message = itemSnapshot.val().message;
+				pushAnnouncement(key, datetime, message);
+			});
+		})
+	});
+}
+
+// Listen for mentor requests
+var listenMentor = function() {
+	var mentorRef = firebase.database().ref('mentor');
+	mentorRef.on('value', function(snapshot) {
+		$("#mentor-list").empty();
+		snapshot.forEach(function(item) {
+			var key = item.key;
+			var itemRef = firebase.database().ref('mentor/' + key);
+			itemRef.once('value').then(function(itemSnapshot) {
+				var datetime = itemSnapshot.val().datetime;
+				var message = itemSnapshot.val().message;
+				var table = itemSnapshot.val().table;
+				var tech = itemSnapshot.val().tech;
+				pushMentor(key, datetime, message, table, tech);
 			});
 		})
 	});
@@ -105,6 +178,14 @@ var pushAnnouncement = function(key, datetime, message) {
 	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '</div><div class="card-content col-md-10">' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>';
 
 	announcementsList.prepend(card);
+}
+
+// Push mentor requests card
+var pushMentor = function(key, datetime, message, table, tech) {
+	var mentorList = $("#mentor-list");
+	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-md-10"><b>Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
+
+	mentorList.prepend(card);
 }
 
 // Login popup

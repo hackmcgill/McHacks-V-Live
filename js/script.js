@@ -68,6 +68,29 @@ $(function() {
 
 	listenAnnouncements();
 	listenNotifications();
+
+	// Request mentor
+	$("body").on("click", "#mentor button", function() {
+		var table = $("#tableNumber").val();
+		var tech = $("input[name=mentorTechOption]:checked").val();
+		var text = $("textarea").val();
+		if (table === "") {
+			swal("Error!", "Please enter table number.", "error");
+		} else if (tech === undefined) {
+			swal("Error!", "Please select a technology.", "error");
+		} else if (text === "") {
+			swal("Error!", "Message is empty.", "error");
+		} else {
+			firebase.database().ref('mentor').push({
+				"datetime": moment().format('h:mm a'),
+				"table": table,
+				"tech": tech,
+				"message": text
+			});
+
+			swal("Submitted!", "A mentor will drop by shortly.", "success");
+		}
+	});
 });
 
 // Listen for announcements
@@ -75,20 +98,13 @@ var listenAnnouncements = function() {
 	var announcementsRef = firebase.database().ref('announcements');
 	announcementsRef.on('value', function(snapshot) {
 		$("#announcements").empty();
-		var counter = 0;
 		snapshot.forEach(function(item) {
-			counter++;
 			var key = item.key;
-			var datetimeRef = firebase.database().ref('announcements/' + key + '/datetime');
-
-			datetimeRef.on('value', function(datetimeSnapshot) {
-				var datetime = datetimeSnapshot.val();
-				var messageRef = firebase.database().ref('announcements/' + key + '/message');
-
-				messageRef.on('value', function(messageSnapshot) {
-					var message = messageSnapshot.val();
-					pushAnnouncement(datetime, message);
-				});
+			var itemRef = firebase.database().ref('announcements/' + key);
+			itemRef.once('value').then(function(itemSnapshot) {
+				var datetime = itemSnapshot.val().datetime;
+				var message = itemSnapshot.val().message;
+				pushAnnouncement(datetime, message);
 			});
 		})
 	});

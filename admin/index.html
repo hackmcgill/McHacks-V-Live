@@ -7,7 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+	<link rel="stylesheet" href="../css/sweetalert.css">
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="css/style.css">
 
@@ -23,6 +23,12 @@
 			<div id="admin-status">
 				<span id="admin-text">ADMIN</span><br/>
 				<span id="admin-email"></span><br/>
+				<div id="admin-menu" class="center">
+					<ul class="nav nav-pills nav-stacked">
+						<li id="announcements-btn"><a href="#announcements">Announcements</a></li>
+						<li id="mentor-btn"><a href="#mentor">Mentor</a></li>
+					</ul>
+				</div>
 				<a href="#" id="signout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
 			</div>
 		</div>
@@ -45,6 +51,7 @@
 						</div>
 					</div>
 					<div id="announcements-list">
+						<img class="loading" src="../images/loading-spinning-bubbles.svg" alt="Loading" />
 						<!-- <div class="card row">
 							<div class="card-timestamp col-md-1">
 								4:20PM
@@ -60,6 +67,26 @@
 						</div> -->
 					</div>
 				</section>
+
+				<section id="mentor">
+					<h2>Mentor Requests</h2>
+					<div id="mentor-list">
+						<img class="loading" src="../images/loading-spinning-bubbles.svg" alt="Loading" />
+						<!-- <div class="card row">
+							<div class="card-timestamp col-md-1">
+								4:20 pm<br>Web
+							</div>
+							<div class="card-content col-md-10">
+								<b>Table 69: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum mauris sit amet orci laoreet tempor. Ut vestibulum id urna sit amet malesuada.
+							</div>
+							<div class="card-delete center col-md-1">
+								<a href="#">
+									<i class="fa fa-check" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div> -->
+					</div>
+				</section>
 			</div>
 		</div>
 	</div>
@@ -67,8 +94,8 @@
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<script src="js/sweetalert.min.js"></script>
-	<script src="js/moment.js"></script>
+	<script src="../js/sweetalert.min.js"></script>
+	<script src="../js/moment.js"></script>
 	<script src="js/script.js"></script>
 </body>
 
