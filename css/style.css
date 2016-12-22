@@ -45,15 +45,23 @@ body>.row {
 }
 
 #sidebar {
-	background-color: #34495e;
+	/*background-color: #34495e;*/
+	background-image: url('../images/bg.jpg');
+	background-size: cover;
 	height: 100%;
 	padding-right: 0;
 }
 
+.overlay {
+	background: rgba(0,0,0,0.4);
+	height: 100%;
+}
+
 #sidebar-logo {
-	margin: 25px auto;
-	height: 100px;
+	margin: auto;
+	height: 150px;
 	display: block;
+	padding: 25px 0;
 }
 
 #live-header {
@@ -88,7 +96,7 @@ body>.row {
 }
 
 .schedule-event {
-	background: rgba(255,255,255,0.25);
+	background: rgba(255,255,255,0.3);
 	border-radius: 3px;
 	padding: 3% 0;
 }
