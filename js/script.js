@@ -12,6 +12,8 @@ var database = firebase.database();
 $(function() {
 	$(".event-details").hide();
 
+	initNotifier();
+
 	// Process which tab to show upon launching
 	if (window.location.hash[0] === "#") {
 		var tab = window.location.hash;
@@ -41,9 +43,26 @@ $(function() {
 		if ($(this).hasClass("fa-bell-o")) {
 			$(this).removeClass("fa-bell-o");
 			$(this).addClass("fa-bell");
+
+			var day = $(this).parent().parent().find(".event-time").attr("date");
+			var time = $(this).parent().parent().find(".event-time").text();
+			var event = $(this).parent().parent().find(".event-name").text();
+			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD HH:mm").subtract(15, "minutes");
+
+			var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
+			scheduleNotifier[timeToNotify] = event;
+			localStorage.setItem("ScheduleNotifier", JSON.stringify(scheduleNotifier));
 		} else {
 			$(this).removeClass("fa-bell");
 			$(this).addClass("fa-bell-o");
+
+			var day = $(this).parent().parent().find(".event-time").attr("date");
+			var time = $(this).parent().parent().find(".event-time").text();
+			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD HH:mm").subtract(15, "minutes");
+
+			var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
+			delete scheduleNotifier[timeToNotify];
+			localStorage.setItem("ScheduleNotifier", JSON.stringify(scheduleNotifier));
 		}
 	});
 
@@ -66,6 +85,7 @@ $(function() {
 		}
 	});
 
+	setInterval(listenEventNotification(), 60000);
 	listenAnnouncements();
 	listenNotifications();
 
@@ -93,6 +113,27 @@ $(function() {
 	});
 });
 
+var initNotifier = function() {
+	if (localStorage.getItem("ScheduleNotifier")) {
+		// TODO: Change bell icon for notifications that are already set
+	} else {
+		// Otherwise, initialize empty object in localStorage
+		localStorage.setItem("ScheduleNotifier", "{}");
+	}
+}
+
+// Schedule event notification tracker
+var listenEventNotification = function() {
+	var now = moment();
+	var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
+	if (scheduleNotifier[now]) {
+		var event = scheduleNotifier[now];
+		notify(event + " is starting in 15 minutes!");
+		delete scheduleNotifier[now];
+		localStorage.setItem("ScheduleNotifier", JSON.stringify(scheduleNotifier));
+	}
+}
+
 // Listen for announcements
 var listenAnnouncements = function() {
 	var announcementsRef = firebase.database().ref('announcements');
@@ -118,15 +159,15 @@ var listenNotifications = function() {
 		if (init)
 			Notification.requestPermission();
 		else
-			notifyAnnouncement(snapshot.val());
+			notify(snapshot.val());
 		setTimeout(function() {
 			init = false;
 		}, 100);
 	})
 }
 
-// Notification for announcements
-var notifyAnnouncement = function(message) {
+// Notification function
+var notify = function(message) {
 	console.log(message);
 	if (window.Notification && Notification.permission !== "denied") {
 		Notification.requestPermission(function(status) {
