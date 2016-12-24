@@ -4,6 +4,10 @@ html, body {
 
 body {
 	font-family: 'Nunito', sans-serif;
+	/* Photo Courtesy Of University of California Irvine */
+	background-image: url('../images/bg.jpg');
+	background-size: cover;
+	background-position: center center;
 }
 
 body>.row {
@@ -45,16 +49,13 @@ body>.row {
 }
 
 #sidebar {
-	/*background-color: #34495e;*/
-	/* Photo Courtesy Of University of California Irvine */
-	background-image: url('../images/bg.jpg');
 	background-size: cover;
 	height: 100%;
 	padding-right: 0;
 }
 
 .overlay {
-	background: rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0.75);
 	height: 100%;
 }
 
@@ -76,7 +77,6 @@ body>.row {
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
-	/*background-color: #ff0000;*/
 	background-color: #e74c3c;
 	/*animation: blinking 1.5s infinite;*/
 	animation: breathe 2.5s infinite;
@@ -119,7 +119,6 @@ body>.row {
 /* Top Nav Bar */
 #menu-bar {
 	height: 100px;
-	background-color: #ecf0f1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -130,6 +129,7 @@ body>.row {
 	letter-spacing: 1px;
 	font-size: 1.25em;
 	padding: 0 2em 0 2em;
+	color: #ecf0f1;
 }
 
 .menu>a:hover {
@@ -137,12 +137,12 @@ body>.row {
 }
 
 .menu>a.active>span {
-	border-bottom: 3px solid #b4e7f8;
+	border-bottom: 3px solid #59b5f2;
 }
 
 /* Main Container */
 #main {
-	background-color: #ecf0f1;
+	background: rgba(0,0,0,0.45);
 	height: 100%;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
@@ -156,10 +156,9 @@ body>.row {
 /* Card Element */
 .card {
 	width: 100%;
-	background-color: rgba(52, 152, 219, 0.9);
+	background-color: rgba(52, 152, 219, 0.85);
 	border-radius: 2px;
 	color: #34495e;
-	box-shadow: 2px 2px 1px #2c3e50;
 	margin-bottom: 2.5%;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
