@@ -101,7 +101,7 @@ $(function() {
 		} else if (text === "") {
 			swal("Error!", "Message is empty.", "error");
 		} else {
-			firebase.database().ref('mentor').push({
+			database.ref('mentor').push({
 				"datetime": moment().format('h:mm a'),
 				"table": table,
 				"tech": tech,
@@ -113,9 +113,21 @@ $(function() {
 	});
 });
 
+// Change bell icon for notifications that are already set
 var initNotifier = function() {
 	if (localStorage.getItem("ScheduleNotifier")) {
-		// TODO: Change bell icon for notifications that are already set
+		var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
+
+		for (var key in scheduleNotifier) {
+			if (scheduleNotifier.hasOwnProperty(key)) {
+				var datetime = moment(key, "ddd MMM DD YYYY HH:mm:ss GMTZ");
+				var date = datetime.format("YYYY-MM-DD");
+				var time = datetime.add(15, 'minutes').format("HH:mm");
+				var bell = $(".event-time[date='" + date + "']:contains('" + time + "')").parent().find("i");
+				bell.removeClass("fa-bell-o");
+				bell.addClass("fa-bell");
+			}
+		}
 	} else {
 		// Otherwise, initialize empty object in localStorage
 		localStorage.setItem("ScheduleNotifier", "{}");
@@ -136,12 +148,12 @@ var listenEventNotification = function() {
 
 // Listen for announcements
 var listenAnnouncements = function() {
-	var announcementsRef = firebase.database().ref('announcements');
+	var announcementsRef = database.ref('announcements');
 	announcementsRef.on('value', function(snapshot) {
 		$("#announcements").empty();
 		snapshot.forEach(function(item) {
 			var key = item.key;
-			var itemRef = firebase.database().ref('announcements/' + key);
+			var itemRef = database.ref('announcements/' + key);
 			itemRef.once('value').then(function(itemSnapshot) {
 				var datetime = itemSnapshot.val().datetime;
 				var message = itemSnapshot.val().message;
@@ -153,7 +165,7 @@ var listenAnnouncements = function() {
 
 // Listen for new announcements
 var listenNotifications = function() {
-	var notificationRef = firebase.database().ref('notification/message');
+	var notificationRef = database.ref('notification/message');
 	var init = true;
 	notificationRef.on('value', function(snapshot) {
 		if (init)
