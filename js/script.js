@@ -85,7 +85,7 @@ $(function() {
 		}
 	});
 
-	setInterval(listenEventNotification(), 60000);
+	setInterval(listenEventNotification, 60000);
 	listenAnnouncements();
 	listenNotifications();
 
@@ -124,7 +124,7 @@ var initNotifier = function() {
 
 // Schedule event notification tracker
 var listenEventNotification = function() {
-	var now = moment();
+	var now = moment().set('second', 0);
 	var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
 	if (scheduleNotifier[now]) {
 		var event = scheduleNotifier[now];
