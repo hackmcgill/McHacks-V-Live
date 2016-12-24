@@ -7,6 +7,7 @@ var config = {
 	messagingSenderId: "137852911349"
 };
 firebase.initializeApp(config);
+var database = firebase.database();
 
 $(function() {
 	// Process which tab to show upon launching
@@ -64,12 +65,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 				if (text === "") {
 					swal("Error!", "Message is empty.", "error");
 				} else {
-					firebase.database().ref('announcements').push({
+					database.ref('announcements').push({
 						"datetime": moment().format('h:mm a'),
 						"message": text
 					});
 
-					firebase.database().ref('notification').set({
+					database.ref('notification').set({
 						"message": text
 					});
 				}
@@ -90,7 +91,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 				}, function(){
 					swal("Announcement Deleted!", "It will be removed from every user's feed automatically.", "success");
 
-					var announcementsRef = firebase.database().ref('announcements/' + id);
+					var announcementsRef = database.ref('announcements/' + id);
 					announcementsRef.remove();
 				});
 			});
@@ -110,7 +111,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 				}, function(){
 					swal("Mentor request archived!", "Please don't forget to assign a mentor to the table.", "success");
 
-					var mentorRef = firebase.database().ref('mentor/' + id);
+					var mentorRef = database.ref('mentor/' + id);
 					mentorRef.remove();
 				});
 			});
@@ -132,12 +133,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 // Listen for announcements
 var listenAnnouncements = function() {
-	var announcementsRef = firebase.database().ref('announcements');
+	var announcementsRef = database.ref('announcements');
 	announcementsRef.on('value', function(snapshot) {
 		$("#announcements-list").empty();
 		snapshot.forEach(function(item) {
 			var key = item.key;
-			var itemRef = firebase.database().ref('announcements/' + key);
+			var itemRef = database.ref('announcements/' + key);
 			itemRef.once('value').then(function(itemSnapshot) {
 				var datetime = itemSnapshot.val().datetime;
 				var message = itemSnapshot.val().message;
@@ -149,12 +150,12 @@ var listenAnnouncements = function() {
 
 // Listen for mentor requests
 var listenMentor = function() {
-	var mentorRef = firebase.database().ref('mentor');
+	var mentorRef = database.ref('mentor');
 	mentorRef.on('value', function(snapshot) {
 		$("#mentor-list").empty();
 		snapshot.forEach(function(item) {
 			var key = item.key;
-			var itemRef = firebase.database().ref('mentor/' + key);
+			var itemRef = database.ref('mentor/' + key);
 			itemRef.once('value').then(function(itemSnapshot) {
 				var datetime = itemSnapshot.val().datetime;
 				var message = itemSnapshot.val().message;

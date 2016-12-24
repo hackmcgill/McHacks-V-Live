@@ -12,6 +12,8 @@ var database = firebase.database();
 $(function() {
 	$(".event-details").hide();
 
+	initNotifier();
+
 	// Process which tab to show upon launching
 	if (window.location.hash[0] === "#") {
 		var tab = window.location.hash;
@@ -29,21 +31,38 @@ $(function() {
 		$("#announcements").addClass("active-tab");
 	}
 
-	// Schedule event hovering animation
+	// Event reminder hovering animation
 	$(".schedule-event").hover(function() {
 		$(this).find(".event-details").slideDown();
 	}, function() {
 		$(this).find(".event-details").slideUp();
 	});
 
-	// Schedule event notification event handler
-	$(".schedule-event>.event-notification>i").click(function() {
+	// Event reminder event handler
+	$(".schedule-event>.event-reminder>i").click(function() {
 		if ($(this).hasClass("fa-bell-o")) {
 			$(this).removeClass("fa-bell-o");
 			$(this).addClass("fa-bell");
+
+			var day = $(this).parent().parent().find(".event-time").attr("date");
+			var time = $(this).parent().parent().find(".event-time").text();
+			var event = $(this).parent().parent().find(".event-name").text();
+			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD HH:mm").subtract(15, "minutes");
+
+			var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
+			eventReminder[timeToNotify] = event;
+			localStorage.setItem("EventReminder", JSON.stringify(eventReminder));
 		} else {
 			$(this).removeClass("fa-bell");
 			$(this).addClass("fa-bell-o");
+
+			var day = $(this).parent().parent().find(".event-time").attr("date");
+			var time = $(this).parent().parent().find(".event-time").text();
+			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD HH:mm").subtract(15, "minutes");
+
+			var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
+			delete eventReminder[timeToNotify];
+			localStorage.setItem("EventReminder", JSON.stringify(eventReminder));
 		}
 	});
 
@@ -66,6 +85,7 @@ $(function() {
 		}
 	});
 
+	setInterval(listenEventReminder, 60000);
 	listenAnnouncements();
 	listenNotifications();
 
@@ -81,7 +101,7 @@ $(function() {
 		} else if (text === "") {
 			swal("Error!", "Message is empty.", "error");
 		} else {
-			firebase.database().ref('mentor').push({
+			database.ref('mentor').push({
 				"datetime": moment().format('h:mm a'),
 				"table": table,
 				"tech": tech,
@@ -93,14 +113,47 @@ $(function() {
 	});
 });
 
+// Change bell icon for reminders that are already set
+var initNotifier = function() {
+	if (localStorage.getItem("EventReminder")) {
+		var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
+
+		for (var key in eventReminder) {
+			if (eventReminder.hasOwnProperty(key)) {
+				var datetime = moment(key, "ddd MMM DD YYYY HH:mm:ss GMTZ");
+				var date = datetime.format("YYYY-MM-DD");
+				var time = datetime.add(15, 'minutes').format("HH:mm");
+				var bell = $(".event-time[date='" + date + "']:contains('" + time + "')").parent().find("i");
+				bell.removeClass("fa-bell-o");
+				bell.addClass("fa-bell");
+			}
+		}
+	} else {
+		// Otherwise, initialize empty object in localStorage
+		localStorage.setItem("EventReminder", "{}");
+	}
+}
+
+// Event reminder tracker
+var listenEventReminder = function() {
+	var now = moment().set('second', 0);
+	var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
+	if (eventReminder[now]) {
+		var event = eventReminder[now];
+		notify(event + " is starting in 15 minutes!");
+		delete eventReminder[now];
+		localStorage.setItem("EventReminder", JSON.stringify(eventReminder));
+	}
+}
+
 // Listen for announcements
 var listenAnnouncements = function() {
-	var announcementsRef = firebase.database().ref('announcements');
+	var announcementsRef = database.ref('announcements');
 	announcementsRef.on('value', function(snapshot) {
 		$("#announcements").empty();
 		snapshot.forEach(function(item) {
 			var key = item.key;
-			var itemRef = firebase.database().ref('announcements/' + key);
+			var itemRef = database.ref('announcements/' + key);
 			itemRef.once('value').then(function(itemSnapshot) {
 				var datetime = itemSnapshot.val().datetime;
 				var message = itemSnapshot.val().message;
@@ -112,21 +165,21 @@ var listenAnnouncements = function() {
 
 // Listen for new announcements
 var listenNotifications = function() {
-	var notificationRef = firebase.database().ref('notification/message');
+	var notificationRef = database.ref('notification/message');
 	var init = true;
 	notificationRef.on('value', function(snapshot) {
 		if (init)
 			Notification.requestPermission();
 		else
-			notifyAnnouncement(snapshot.val());
+			notify(snapshot.val());
 		setTimeout(function() {
 			init = false;
 		}, 100);
 	})
 }
 
-// Notification for announcements
-var notifyAnnouncement = function(message) {
+// Notification function
+var notify = function(message) {
 	console.log(message);
 	if (window.Notification && Notification.permission !== "denied") {
 		Notification.requestPermission(function(status) {
