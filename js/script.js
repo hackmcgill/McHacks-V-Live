@@ -31,15 +31,15 @@ $(function() {
 		$("#announcements").addClass("active-tab");
 	}
 
-	// Schedule event hovering animation
+	// Event reminder hovering animation
 	$(".schedule-event").hover(function() {
 		$(this).find(".event-details").slideDown();
 	}, function() {
 		$(this).find(".event-details").slideUp();
 	});
 
-	// Schedule event notification event handler
-	$(".schedule-event>.event-notification>i").click(function() {
+	// Event reminder event handler
+	$(".schedule-event>.event-reminder>i").click(function() {
 		if ($(this).hasClass("fa-bell-o")) {
 			$(this).removeClass("fa-bell-o");
 			$(this).addClass("fa-bell");
@@ -49,9 +49,9 @@ $(function() {
 			var event = $(this).parent().parent().find(".event-name").text();
 			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD HH:mm").subtract(15, "minutes");
 
-			var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
-			scheduleNotifier[timeToNotify] = event;
-			localStorage.setItem("ScheduleNotifier", JSON.stringify(scheduleNotifier));
+			var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
+			eventReminder[timeToNotify] = event;
+			localStorage.setItem("EventReminder", JSON.stringify(eventReminder));
 		} else {
 			$(this).removeClass("fa-bell");
 			$(this).addClass("fa-bell-o");
@@ -60,9 +60,9 @@ $(function() {
 			var time = $(this).parent().parent().find(".event-time").text();
 			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD HH:mm").subtract(15, "minutes");
 
-			var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
-			delete scheduleNotifier[timeToNotify];
-			localStorage.setItem("ScheduleNotifier", JSON.stringify(scheduleNotifier));
+			var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
+			delete eventReminder[timeToNotify];
+			localStorage.setItem("EventReminder", JSON.stringify(eventReminder));
 		}
 	});
 
@@ -85,7 +85,7 @@ $(function() {
 		}
 	});
 
-	setInterval(listenEventNotification, 60000);
+	setInterval(listenEventReminder, 60000);
 	listenAnnouncements();
 	listenNotifications();
 
@@ -113,13 +113,13 @@ $(function() {
 	});
 });
 
-// Change bell icon for notifications that are already set
+// Change bell icon for reminders that are already set
 var initNotifier = function() {
-	if (localStorage.getItem("ScheduleNotifier")) {
-		var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
+	if (localStorage.getItem("EventReminder")) {
+		var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
 
-		for (var key in scheduleNotifier) {
-			if (scheduleNotifier.hasOwnProperty(key)) {
+		for (var key in eventReminder) {
+			if (eventReminder.hasOwnProperty(key)) {
 				var datetime = moment(key, "ddd MMM DD YYYY HH:mm:ss GMTZ");
 				var date = datetime.format("YYYY-MM-DD");
 				var time = datetime.add(15, 'minutes').format("HH:mm");
@@ -130,19 +130,19 @@ var initNotifier = function() {
 		}
 	} else {
 		// Otherwise, initialize empty object in localStorage
-		localStorage.setItem("ScheduleNotifier", "{}");
+		localStorage.setItem("EventReminder", "{}");
 	}
 }
 
-// Schedule event notification tracker
-var listenEventNotification = function() {
+// Event reminder tracker
+var listenEventReminder = function() {
 	var now = moment().set('second', 0);
-	var scheduleNotifier = JSON.parse(localStorage.getItem("ScheduleNotifier"));
-	if (scheduleNotifier[now]) {
-		var event = scheduleNotifier[now];
+	var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
+	if (eventReminder[now]) {
+		var event = eventReminder[now];
 		notify(event + " is starting in 15 minutes!");
-		delete scheduleNotifier[now];
-		localStorage.setItem("ScheduleNotifier", JSON.stringify(scheduleNotifier));
+		delete eventReminder[now];
+		localStorage.setItem("EventReminder", JSON.stringify(eventReminder));
 	}
 }
 
