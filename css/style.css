@@ -114,17 +114,13 @@ body>.row {
 
 .timer-digit-container {
 	display: inline-block;
-	width: 24%;
+	width: 23%;
 	text-align: center;
 }
 
 .timer-digit {
 	display: block;
 	font-size: 30px;
-	font-weight: bold;
-}
-
-.timer-header {
 	font-weight: bold;
 }
 
