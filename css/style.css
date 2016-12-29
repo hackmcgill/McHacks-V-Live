@@ -54,12 +54,14 @@ body>.row {
 }
 
 .overlay {
-	background: rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0.75);
 	height: 100%;
+	display: flex;
+	flex-flow: column;
 }
 
 #sidebar-logo {
-	margin: auto;
+	margin: 0 auto;
 	height: 150px;
 	display: block;
 	padding: 25px 0;
@@ -131,7 +133,11 @@ body>.row {
 
 #schedule-feed {
 	margin: 0 10%;
+	margin-bottom: 10px;
 	color: white;
+	flex-grow: 1;
+	overflow-y: scroll;
+	background-color: blue;
 }
 
 .schedule-event {
