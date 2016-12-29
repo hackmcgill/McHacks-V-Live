@@ -92,6 +92,7 @@ $(function() {
 	setInterval(listenEventReminder, 60000);
 	listenAnnouncements();
 	listenNotifications();
+	listenRefresh();
 
 	// Request mentor
 	$("body").on("click", "#mentor button", function() {
@@ -189,6 +190,27 @@ var listenNotifications = function() {
 		setTimeout(function() {
 			init = false;
 		}, 100);
+	})
+}
+
+// Listen for schedule updates
+var listenRefresh = function() {
+	var refreshRef = database.ref('version/version');
+	var init = true;
+	var currentVersion;
+	// refreshRef.once('value').then(function(snapshot) {
+	// 	currentVersion = snapshot.val();
+	// 	console.log(currentVersion)
+	// })
+
+	refreshRef.on('value', function(snapshot) {
+		if (init) {
+			init = false;
+			currentVersion = snapshot.val();
+		} else if (snapshot.val() !== currentVersion) {
+			currentVersion = snapshot.val();
+			location.reload();
+		}
 	})
 }
 
