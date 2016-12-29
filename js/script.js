@@ -13,6 +13,7 @@ $(function() {
 	$(".event-details").hide();
 
 	initNotifier();
+	loadSchedule();
 
 	// Process which tab to show upon launching
 	if ($(window).width() < 992) {
@@ -34,9 +35,12 @@ $(function() {
 	}
 
 	// Event reminder hovering animation
-	$(".schedule-event").hover(function() {
+	// $(".schedule-event").hover(function() {
+	$("body").on("mouseenter", ".schedule-event", function() {
 		$(this).find(".event-details").slideDown();
-	}, function() {
+	});
+
+	$("body").on("mouseleave", ".schedule-event", function() {
 		$(this).find(".event-details").slideUp();
 	});
 
@@ -162,6 +166,16 @@ var initNotifier = function() {
 		// Otherwise, initialize empty object in localStorage
 		localStorage.setItem("EventReminder", "{}");
 	}
+}
+
+// Load schedule from JSON file
+var loadSchedule = function() {
+	$.getJSON("/schedule.json", function(data) {
+		$.each(data, function(key, val) {
+			var event = '<div class="schedule-event row"><div class="event-time col-md-2" date="' + val.date + '">' + val.time + '</div><div class="event-name col-md-8">' + val.name + '</div><div class="event-reminder col-md-1"><i class="fa fa-bell-o" aria-hidden="true"></i></div><div class="event-details col-md-offset-2 col-md-10">' + val.description + '</div></div>';
+			$("#schedule-feed").append(event);
+		})
+	});
 }
 
 // Event reminder tracker
