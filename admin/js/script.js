@@ -125,6 +125,18 @@ firebase.auth().onAuthStateChanged(function(user) {
 					swal("Error!", error.code + ": " + error.message, "error");
 				});
 			});
+
+			// Force refresh event handler
+			$("body").on("click", "#refresh-btn", function () {
+				var refreshRef = database.ref('version/version');
+				refreshRef.once('value').then(function(snapshot) {
+					var version = snapshot.val() + 1;
+					var versionRef = database.ref('version');
+					versionRef.update({
+						"version": version
+					})
+				})
+			});
 		});
 	} else {
 		login();
