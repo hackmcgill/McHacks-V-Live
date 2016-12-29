@@ -138,6 +138,7 @@ body>.row {
 	background: rgba(255,255,255,0.3);
 	border-radius: 3px;
 	padding: 3% 0;
+	margin-top: 10px;
 }
 
 .event-time {
