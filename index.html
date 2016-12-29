@@ -24,8 +24,33 @@
 					<div id="live-circle"></div>
 					<span id="live-text">LIVE</span>
 				</div>
+				<div id="timer-container">
+					<!--
+						"countdown 'til hacking begins"
+						OR
+						"countdown"
+					 -->
+					<span id="timer-header">COUNTDOWN</span>
+
+					<div class="timer-digit-container">
+						<span class="timer-digit-header">DAY</span>
+						<span class="timer-digit" id="days">0</span>
+					</div>
+					<div class="timer-digit-container">
+						<span class="timer-digit-header">HOUR</span>
+						<span class="timer-digit" id="hours">0</span>
+					</div>
+					<div class="timer-digit-container">
+						<span class="timer-digit-header">MIN</span>
+						<span class="timer-digit" id="minutes">0</span>
+					</div>
+					<div class="timer-digit-container">
+						<span class="timer-digit-header">SEC</span>
+						<span class="timer-digit" id="seconds">0</span>
+					</div>
+				</div>
 				<div id="schedule-feed">
-					<hr>
+
 					<div class="schedule-event row">
 						<div class="event-time col-md-2" date="2017-01-13">16:20</div>
 						<div class="event-name col-md-8">Event 1</div>
@@ -134,5 +159,6 @@
 	<script src="js/sweetalert.min.js"></script>
 	<script src="js/moment.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/timer.js"></script>
 </body>
 </html>

@@ -91,6 +91,44 @@ body>.row {
 	letter-spacing: 2px;
 }
 
+#timer-container {
+	margin: 20px 10%;
+	padding: 5px 0;
+	color: white;
+	border-width: 1px 0 1px 0;
+	border-color: white;
+	border-style: solid;
+}
+
+#timer-header {
+	font-weight: bold;
+	font-size: 24px;
+	margin: 0 auto 10px auto;
+	text-align: center;
+	display: block;
+	border-width: 2px;
+	border-width: 0 0 1px 0;
+	border-color: white;
+	border-style: solid;
+}
+
+.timer-digit-container {
+	display: inline-block;
+	width: 23%;
+	text-align: center;
+}
+
+.timer-digit {
+	display: block;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.timer-digit-header {
+	font-weight: bold;
+}
+
+
 #schedule-feed {
 	margin: 0 10%;
 	color: white;
