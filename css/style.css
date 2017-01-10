@@ -216,6 +216,11 @@ body>.row {
 	width: 86.66666667% !important;
 }
 
+/* Map */
+#map>img {
+	width: 100%;
+}
+
 /* Mentor */
 .mentor-header {
 	font-weight: 400;
