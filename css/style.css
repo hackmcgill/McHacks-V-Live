@@ -194,10 +194,11 @@ body>.row {
 /* Card Element */
 .card {
 	width: 100%;
-	background-color: rgba(52, 152, 219, 0.9);
+	/*background-color: rgba(52, 152, 219, 0.9);*/
+	background: linear-gradient(to bottom right, #3498db, #2992d8);
 	border-radius: 2px;
 	color: #34495e;
-	box-shadow: 2px 2px 1px #2c3e50;
+	/*box-shadow: 1px 1px 0.5px #2c3e50;*/
 	margin-bottom: 2.5%;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
@@ -214,6 +215,43 @@ body>.row {
 	padding: 1.5% 3% 1.5% 2%;
 	color: #ecf0f1;
 	width: 86.66666667% !important;
+}
+
+.prizes-card {
+	background-color: #ffffff;
+	width: 18%;
+	text-align: center;
+	float: left;
+	border-radius: 2px;
+	margin-right: 15px;
+	box-shadow: 1px 1px 0.5px #2c3e50;
+	background: linear-gradient(to bottom right, #E2E4F6, #BEB8EB);
+}
+
+.prizes-card-icon>i {
+	font-size: 3em;
+	padding: 0.5em;
+	border-radius: 100%;
+	background: #34495e;
+	color: #ecf0f1;
+	margin: 25px;
+}
+
+.prizes-card-content {
+	padding: 0 0.5em;
+}
+
+.prizes-card-title {
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
+.prizes-card-prize {
+	padding: 1em 0;
+}
+
+.prizes-card-sponsor {
+	font-weight: 300;
 }
 
 /* Map */
