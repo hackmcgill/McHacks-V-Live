@@ -96,6 +96,8 @@ $(function() {
 		var text = $("textarea").val();
 		if (table === "") {
 			swal("Error!", "Please enter table number.", "error");
+		} else if (table < 1 || table > 68) {
+			swal("Error!", "Please enter a valid table number.", "error");
 		} else if (tech === undefined) {
 			swal("Error!", "Please select a technology.", "error");
 		} else if (text === "") {
