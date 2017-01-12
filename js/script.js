@@ -69,7 +69,7 @@ $(function() {
 	// Menu tabs event handler
 	$(".menu>a").click(function() {
 		// Switch tabs if it's not Devpost link
-		if ($(this).attr('href') !== "http://devpost.com") {
+		if ($(this).attr('href') !== "https://hackatuci.devpost.com/" && $(this).attr('href') !== "https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform") {
 			// Switch underline from active tab to clicked tab
 			$(".active").removeClass("active");
 			$(this).addClass("active");
