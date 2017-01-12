@@ -110,6 +110,7 @@ $(function() {
 
 			swal("Submitted!", "A mentor will drop by shortly.", "success");
 		}
+		return false;
 	});
 });
 
