@@ -263,3 +263,59 @@ var pushAnnouncement = function(datetime, message) {
 
 	announcementsList.prepend(card);
 }
+
+// TESTING
+
+var $scheduleBackground = $('#schedule-background');
+
+function createScheduleHour(label) {
+	$scheduleBackground.append($('<div class="schedule-hour"><span class="schedule-hour-label">' + label + '</span></div>'));
+}
+
+function numToHour(num) {
+	var suffix = '';
+	var hour = num;
+	if (hour < 12) {
+		suffix = 'AM';
+	} else {
+		suffix = 'PM';
+		hour -= 12;
+	}
+
+	if (hour === 0) {
+		hour = 12;
+	}
+
+	return hour + ' ' + suffix;
+}
+
+
+var iHour = 18;
+var iDay = 'Fri';
+
+var lastHour = 18;
+var lastDay = 'Sun';
+
+var cachedDay = '';
+while ((iHour !== lastHour) || (iDay !== lastDay)) {
+	if (cachedDay !== iDay) {
+		createScheduleHour(iDay + ', ' + numToHour(iHour))
+		cachedDay = iDay;
+	} else {
+		createScheduleHour(numToHour(iHour))
+	}
+
+	// Iterate
+	if (iHour === 23) {
+		if (iDay === 'Fri') {
+			iDay = 'Sat';
+		} else if (iDay === 'Sat') {
+			iDay = 'Sun';
+		}
+
+		iHour = 0;
+	} else {
+		iHour += 1;
+	}
+}
+

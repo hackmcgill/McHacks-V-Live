@@ -131,13 +131,44 @@ body>.row {
 }
 
 
-#schedule-feed {
+.schedule-feed {
 	margin: 0 10%;
 	margin-bottom: 10px;
 	color: white;
 	flex-grow: 1;
 	overflow-y: scroll;
-	background-color: blue;
+	/*background-color: blue;*/
+}
+
+#schedule-foreground {
+	/*background-color: blue;*/
+	height: 100px;
+}
+
+.schedule-hour {
+	border-top: 1px rgba(255, 255, 255, 0.75) solid;
+	height: 100px;
+	position: relative;
+	display: block;
+}
+
+.schedule-hour:after {
+	content: ' ';
+	border-top: 1px rgba(255, 255, 255, 0.75) dotted;
+	top: 50px;
+	width: 100%;
+	position: absolute;
+}
+
+.schedule-hour:last-child {
+	border-bottom: 1px rgba(255, 255, 255, 0.75) solid;
+}
+
+.schedule-hour-label {
+	position: absolute;
+	font-weight: bold;
+	/*font-size: 12px;*/
+	opacity: 0.9;
 }
 
 .schedule-event {
