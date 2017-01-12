@@ -284,3 +284,12 @@ body>.row {
 #mentor .btn {
 	margin-left: 0.93%;
 }
+
+/* Prizes */
+#prizes-section {
+	display: block;
+}
+
+#sponsors-section {
+	display: block;
+}
