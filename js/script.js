@@ -83,6 +83,11 @@ $(function() {
 		}
 	});
 
+	// Mobile hamburger event handler
+	$("#mobile-menu-bar i").click(function() {
+		$("#mobile-menu").modal("show");
+	})
+
 	// Mobile menu event handler
 	$("#mobile-menu a").click(function() {
 		// Switch tabs if it's not Devpost or GDocs link
@@ -96,6 +101,13 @@ $(function() {
 				$(tab).addClass("active-tab");
 			})
 		}
+
+		if (tab === "#announcements")
+			$("#mobile-menu-bar-title").text("Announcements");
+		else if (tab === "#map")
+			$("#mobile-menu-bar-title").text("Map");
+		else if (tab === "#mentor")
+			$("#mobile-menu-bar-title").text("Mentor Request");
 
 		$("#mobile-menu").modal("hide");
 	})
