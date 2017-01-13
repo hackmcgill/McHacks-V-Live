@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>HackUCI Live</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -16,6 +17,30 @@
 </head>
 
 <body>
+	<div id="mobile-menu-bar" class="hidden-md hidden-lg center">
+		<div>
+			<span>HackUCI LIVE</span>
+			<i class="fa fa-bars" aria-hidden="true" data-toggle="modal" data-target="#mobile-menu"></i>
+		</div>
+	</div>
+	<div class="modal fade" id="mobile-menu" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<span class="modal-title">Menu</span>
+				</div>
+				<div class="modal-body">
+					<a href="#sidebar">Schedule</a>
+					<a href="#announcements">Announcements</a>
+					<a href="#map">Map</a>
+					<a href="#mentor">Mentor</a>
+					<a href="https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform" target="_blank">Hardware</a>
+					<a href="https://hackatuci.devpost.com/" target="_blank">Devpost</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="row">
 		<div id="sidebar" class="col-md-3">
 			<div class="overlay">
@@ -64,7 +89,7 @@
 		</div>
 
 		<div id="main" class="col-md-9">
-			<div id="menu-bar">
+			<div id="menu-bar" class="hidden-xs hidden-sm">
 				<div class="menu">
 					<a href="#announcements" id="announcements-btn"><span>ANNOUNCEMENTS</span></a>
 					<a href="#map" id="map-btn"><span>MAP</span></a>
