@@ -171,12 +171,12 @@ var initNotifier = function() {
 
 // Load schedule from JSON file
 var loadSchedule = function() {
-	$.getJSON("/schedule.json", function(data) {
+	/*$.getJSON("/schedule.json", function(data) {
 		$.each(data, function(key, val) {
 			var event = '<div class="schedule-event row"><div class="event-time col-md-2" date="' + val.date + '">' + val.time + '</div><div class="event-name col-md-8">' + val.name + '</div><div class="event-reminder col-md-1"><i class="fa fa-bell-o" aria-hidden="true"></i></div><div class="event-details col-md-offset-2 col-md-10">' + val.description + '</div></div>';
 			$("#schedule-feed").append(event);
 		})
-	});
+	});*/
 }
 
 // Event reminder tracker
@@ -318,4 +318,50 @@ while ((iHour !== lastHour) || (iDay !== lastDay)) {
 		iHour += 1;
 	}
 }
+
+var $scheduleFeed = $('#schedule-feed');
+
+
+schedule.forEach(function(event) {
+	var $scheduleEvent = $('<div class="schedule-event"><h3>' + event.title + '</h3></div>');
+
+	// Calculate top
+	var dayMargin = 0;
+	if (event.day === 'Sat') {
+		dayMargin = 6 * 150;
+	} else if (event.day === 'Sun') {
+		dayMargin = 30 * 150;
+	}
+
+	var pmMargin = 0;
+	// Calculate PM Margin
+	if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Fri') {
+		pmMargin = 12 * 150;
+	}
+
+	var hourMargin = 0;
+	var hour = parseInt(event.starts.substr(0, 2));
+	if (hour !== 12) {
+		if (event.day !== 'Fri') {
+			hourMargin = 150 * hour;
+		} else {
+			hourMargin = 150 * (hour - 5);
+		}
+	}
+
+	var minute = parseInt(event.starts.substr(3, 3));
+	var minuteMargin = minute * 75 / 30;
+
+	// console.log(dayMargin, pmMargin, hourMargin)
+
+	var top = dayMargin + pmMargin + hourMargin + minuteMargin;
+	$scheduleEvent.css('top', top);
+
+	// Calculate height
+	var height = 75 * (event.duration / 30);
+	$scheduleEvent.css('height', height);
+
+	$scheduleFeed.append($scheduleEvent);
+
+});
 
