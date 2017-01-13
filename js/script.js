@@ -15,7 +15,9 @@ $(function() {
 	initNotifier();
 
 	// Process which tab to show upon launching
-	if (window.location.hash[0] === "#") {
+	if ($(window).width() < 992) {
+		$("#sidebar").addClass("active-tab");
+	} else if (window.location.hash[0] === "#") {
 		var tab = window.location.hash;
 
 		// Add underline to the tab link
@@ -68,12 +70,8 @@ $(function() {
 
 	// Menu tabs event handler
 	$(".menu>a").click(function() {
-		// Switch tabs if it's not Devpost link
+		// Switch tabs if it's not Devpost or GDocs link
 		if ($(this).attr('href') !== "https://hackatuci.devpost.com/" && $(this).attr('href') !== "https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform") {
-			// Switch underline from active tab to clicked tab
-			$(".active").removeClass("active");
-			$(this).addClass("active");
-
 			var tab = $(this).attr('href');
 
 			// Hide the current tab and display the new tab
@@ -84,6 +82,23 @@ $(function() {
 			})
 		}
 	});
+
+	// Mobile menu event handler
+	$("#mobile-menu a").click(function() {
+		// Switch tabs if it's not Devpost or GDocs link
+		if ($(this).attr('href') !== "https://hackatuci.devpost.com/" && $(this).attr('href') !== "https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform") {
+			var tab = $(this).attr('href');
+
+			// Hide the current tab and display the new tab
+			$(".active-tab").fadeToggle(400, "swing", function() {
+				$(".active-tab").removeClass("active-tab");
+				$(tab).fadeToggle();
+				$(tab).addClass("active-tab");
+			})
+		}
+
+		$("#mobile-menu").modal("hide");
+	})
 
 	setInterval(listenEventReminder, 60000);
 	listenAnnouncements();
