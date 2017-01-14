@@ -180,6 +180,18 @@ var listenMentor = function() {
 			});
 		})
 	});
+
+	var notificationRef = database.ref('mentor-notification/message');
+	var init = true;
+	notificationRef.on('value', function(snapshot) {
+		if (init)
+			Notification.requestPermission();
+		else
+			notify(snapshot.val());
+		setTimeout(function() {
+			init = false;
+		}, 100);
+	})
 }
 
 // Display admin's email
@@ -207,6 +219,18 @@ var pushMentor = function(key, datetime, message, sponsor, table, tech) {
 	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-md-10"><b>' + sponsor + 'Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
 
 	mentorList.prepend(card);
+}
+
+// Notification function
+var notify = function(message) {
+	if (window.Notification && Notification.permission !== "denied") {
+		Notification.requestPermission(function(status) {
+			var notification = new Notification("HackUCI Mentor Request", {
+				body: message,
+				icon: '../images/notif-logo.png'
+			});
+		});
+	}
 }
 
 // Login popup
