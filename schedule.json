@@ -1,0 +1,14 @@
+{
+	"test": {
+		"name": "Event 1",
+		"date": "2017-01-13",
+		"time": "16:20",
+		"description": "Lorum ipsum"
+	},
+	"another test": {
+		"name": "Awesome Dinner",
+		"date": "2017-01-13",
+		"time": "19:30",
+		"description": "Fantastic food"
+	}
+}

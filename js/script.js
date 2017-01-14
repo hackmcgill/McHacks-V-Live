@@ -13,6 +13,7 @@ $(function() {
 	$(".event-details").hide();
 
 	initNotifier();
+	loadSchedule();
 
 	// Process which tab to show upon launching
 	if ($(window).width() < 992) {
@@ -34,9 +35,12 @@ $(function() {
 	}
 
 	// Event reminder hovering animation
-	$(".schedule-event").hover(function() {
+	// $(".schedule-event").hover(function() {
+	$("body").on("mouseenter", ".schedule-event", function() {
 		$(this).find(".event-details").slideDown();
-	}, function() {
+	});
+
+	$("body").on("mouseleave", ".schedule-event", function() {
 		$(this).find(".event-details").slideUp();
 	});
 
@@ -115,6 +119,7 @@ $(function() {
 	setInterval(listenEventReminder, 60000);
 	listenAnnouncements();
 	listenNotifications();
+	listenRefresh();
 
 	// Request mentor
 	$("body").on("click", "#mentor button", function() {
@@ -164,6 +169,16 @@ var initNotifier = function() {
 	}
 }
 
+// Load schedule from JSON file
+var loadSchedule = function() {
+	/*$.getJSON("/schedule.json", function(data) {
+		$.each(data, function(key, val) {
+			var event = '<div class="schedule-event row"><div class="event-time col-md-2" date="' + val.date + '">' + val.time + '</div><div class="event-name col-md-8">' + val.name + '</div><div class="event-reminder col-md-1"><i class="fa fa-bell-o" aria-hidden="true"></i></div><div class="event-details col-md-offset-2 col-md-10">' + val.description + '</div></div>';
+			$("#schedule-feed").append(event);
+		})
+	});*/
+}
+
 // Event reminder tracker
 var listenEventReminder = function() {
 	var now = moment().set('second', 0);
@@ -208,6 +223,27 @@ var listenNotifications = function() {
 	})
 }
 
+// Listen for schedule updates
+var listenRefresh = function() {
+	var refreshRef = database.ref('version/version');
+	var init = true;
+	var currentVersion;
+	// refreshRef.once('value').then(function(snapshot) {
+	// 	currentVersion = snapshot.val();
+	// 	console.log(currentVersion)
+	// })
+
+	refreshRef.on('value', function(snapshot) {
+		if (init) {
+			init = false;
+			currentVersion = snapshot.val();
+		} else if (snapshot.val() !== currentVersion) {
+			currentVersion = snapshot.val();
+			location.reload();
+		}
+	})
+}
+
 // Notification function
 var notify = function(message) {
 	console.log(message);
@@ -227,3 +263,104 @@ var pushAnnouncement = function(datetime, message) {
 
 	announcementsList.prepend(card);
 }
+
+// TESTING
+
+var $scheduleBackground = $('#schedule-background');
+
+function createScheduleHour(label) {
+	$scheduleBackground.append($('<div class="schedule-hour"><span class="schedule-hour-label">' + label + '</span></div>'));
+}
+
+function numToHour(num) {
+	var suffix = '';
+	var hour = num;
+	if (hour < 12) {
+		suffix = 'AM';
+	} else {
+		suffix = 'PM';
+		hour -= 12;
+	}
+
+	if (hour === 0) {
+		hour = 12;
+	}
+
+	return hour + ' ' + suffix;
+}
+
+
+var iHour = 19;
+var iDay = 'Fri';
+
+var lastHour = 18;
+var lastDay = 'Sun';
+
+var cachedDay = '';
+while ((iHour !== lastHour) || (iDay !== lastDay)) {
+	if (cachedDay !== iDay) {
+		createScheduleHour(iDay + ', ' + numToHour(iHour))
+		cachedDay = iDay;
+	} else {
+		createScheduleHour(numToHour(iHour))
+	}
+
+	// Iterate
+	if (iHour === 23) {
+		if (iDay === 'Fri') {
+			iDay = 'Sat';
+		} else if (iDay === 'Sat') {
+			iDay = 'Sun';
+		}
+
+		iHour = 0;
+	} else {
+		iHour += 1;
+	}
+}
+
+var $scheduleFeed = $('#schedule-feed');
+
+schedule.forEach(function(event) {
+	var $scheduleEvent = $('<div class="schedule-event"><h3>' + event.title + '</h3></div>');
+
+	// Calculate top
+	var dayMargin = 0;
+	if (event.day === 'Sat') {
+		dayMargin = 6 * 150;
+	} else if (event.day === 'Sun') {
+		dayMargin = 30 * 150;
+	}
+
+	var pmMargin = 0;
+	// Calculate PM Margin
+	if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Fri') {
+		pmMargin = 12 * 150;
+	}
+
+	var hourMargin = 0;
+	var hour = parseInt(event.starts.substr(0, 2));
+	if (hour !== 12) {
+		if (event.day !== 'Fri') {
+			hourMargin = 150 * hour;
+		} else {
+			hourMargin = 150 * (hour - 7);
+		}
+	}
+
+	var minute = parseInt(event.starts.substr(3, 3));
+	var minuteMargin = minute * 75 / 30;
+
+	// console.log(dayMargin, pmMargin, hourMargin)
+
+	var top = dayMargin + pmMargin + hourMargin + minuteMargin;
+	$scheduleEvent.css('top', top);
+
+	// Calculate height
+	var height = 75 * (event.duration / 30);
+	$scheduleEvent.css('height', height);
+
+	$scheduleFeed.append($scheduleEvent);
+
+});
+
