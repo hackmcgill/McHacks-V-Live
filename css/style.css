@@ -232,7 +232,7 @@ body>.row {
 	font-weight: 600;
 	letter-spacing: 1px;
 	font-size: 1.25em;
-	padding: 0 2.25em 0 2.25em;
+	padding: 0 1.5em 0 1.5em;
 }
 
 .menu>a:hover {
@@ -299,6 +299,10 @@ body>.row {
 	padding: 1.5% 3% 1.5% 2%;
 	color: #ecf0f1;
 	width: 86.66666667% !important;
+}
+
+.card-content a {
+	color: #dbdddd;
 }
 
 .prizes-card {
