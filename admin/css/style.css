@@ -73,3 +73,23 @@ h2 {
 	color: #ecf0f1;
 	font-size: 1.5em;
 }
+
+/* Mobile */
+@media (max-width: 991px) {
+	h2 {
+		margin-top: 0 !important;
+	}
+
+	#announcements .card-timestamp {
+		padding: 4% 2% 1% 5% !important;
+	}
+
+	#announcements .card-content {
+		padding: 3% 0% 4% 4% !important;
+		width: 86.66666667% !important;
+	}
+
+	#announcements-list .card-content {
+		padding: 0% 0% 4% 5% !important;
+	}
+}

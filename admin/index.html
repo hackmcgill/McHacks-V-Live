@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>HackUCI Live Admin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
@@ -17,8 +18,29 @@
 </head>
 
 <body>
+	<div id="mobile-menu-bar" class="hidden-md hidden-lg center">
+		<div>
+			<span id="mobile-menu-bar-title">HackUCI LIVE Admin</span>
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</div>
+	</div>
+	<div class="modal fade" id="mobile-menu" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<span class="modal-title">Menu</span>
+				</div>
+				<div class="modal-body">
+					<a href="#announcements">Announcements</a>
+					<a href="#mentor">Mentor</a>
+					<a href="#schedule">Schedule</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="row">
-		<div id="sidebar" class="col-md-3">
+		<div id="sidebar" class="col-md-3 hidden-xs hidden-sm">
 			<div class="overlay">
 				<img id="sidebar-logo" src="http://hackuci.com/images/logo-2017.png">
 				<div id="admin-status">
