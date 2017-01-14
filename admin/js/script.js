@@ -11,7 +11,10 @@ var database = firebase.database();
 
 $(function() {
 	// Process which tab to show upon launching
-	if (window.location.hash[0] === "#") {
+	if ($(window).width() < 992) {
+		$("#announcements").addClass("active-tab");
+		$("#announcements").css("display", "block");
+	} else if (window.location.hash[0] === "#") {
 		var tab = window.location.hash;
 
 		// Add underline to the tab link
@@ -26,6 +29,25 @@ $(function() {
 		$("#announcements").fadeToggle();
 		$("#announcements").addClass("active-tab");
 	}
+
+	// Mobile hamburger event handler
+	$("#mobile-menu-bar i").click(function() {
+		$("#mobile-menu").modal("show");
+	})
+
+	// Mobile menu event handler
+	$("#mobile-menu a").click(function() {
+		var tab = $(this).attr('href');
+
+		// Hide the current tab and display the new tab
+		$(".active-tab").fadeToggle(400, "swing", function() {
+			$(".active-tab").removeClass("active-tab");
+			$(tab).fadeToggle();
+			$(tab).addClass("active-tab");
+		})
+
+		$("#mobile-menu").modal("hide");
+	})
 })
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -203,7 +225,7 @@ var displayAdminInfo = function() {
 // Push announcement card
 var pushAnnouncement = function(key, datetime, message) {
 	var announcementsList = $("#announcements-list");
-	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '</div><div class="card-content col-md-10">' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>';
+	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '</div><div class="card-content col-xs-10 col-sm-10 col-md-10">' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>';
 
 	announcementsList.prepend(card);
 }
@@ -216,7 +238,7 @@ var pushMentor = function(key, datetime, message, sponsor, table, tech) {
 		sponsor = "[" + sponsor + "] ";
 
 	var mentorList = $("#mentor-list");
-	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-md-10"><b>' + sponsor + 'Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
+	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-xs-11 col-sm-11 col-md-10"><b>' + sponsor + 'Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
 
 	mentorList.prepend(card);
 }
