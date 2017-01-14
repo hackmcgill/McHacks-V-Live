@@ -13,7 +13,6 @@ $(function() {
 	$(".event-details").hide();
 
 	initNotifier();
-	loadSchedule();
 
 	// Process which tab to show upon launching
 	if ($(window).width() < 992) {
@@ -45,15 +44,15 @@ $(function() {
 	});
 
 	// Event reminder event handler
-	$(".schedule-event>.event-reminder>i").click(function() {
+	$(".schedule-event i").click(function() {
 		if ($(this).hasClass("fa-bell-o")) {
 			$(this).removeClass("fa-bell-o");
 			$(this).addClass("fa-bell");
 
-			var day = $(this).parent().parent().find(".event-time").attr("date");
-			var time = $(this).parent().parent().find(".event-time").text();
-			var event = $(this).parent().parent().find(".event-name").text();
-			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD HH:mm").subtract(15, "minutes");
+			var day = $(this).parent().parent().attr("date");
+			var time = $(this).parent().parent().attr("time");
+			var event = $(this).parent().text().substr(1);
+			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD h:mm A").subtract(15, "minutes");
 
 			var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
 			eventReminder[timeToNotify] = event;
@@ -62,9 +61,9 @@ $(function() {
 			$(this).removeClass("fa-bell");
 			$(this).addClass("fa-bell-o");
 
-			var day = $(this).parent().parent().find(".event-time").attr("date");
-			var time = $(this).parent().parent().find(".event-time").text();
-			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD HH:mm").subtract(15, "minutes");
+			var day = $(this).parent().parent().attr("date");
+			var time = $(this).parent().parent().attr("time");
+			var timeToNotify = moment(day + " " + time, "YYYY-MM-DD h:mm A").subtract(15, "minutes");
 
 			var eventReminder = JSON.parse(localStorage.getItem("EventReminder"));
 			delete eventReminder[timeToNotify];
@@ -161,8 +160,8 @@ var initNotifier = function() {
 			if (eventReminder.hasOwnProperty(key)) {
 				var datetime = moment(key, "ddd MMM DD YYYY HH:mm:ss GMTZ");
 				var date = datetime.format("YYYY-MM-DD");
-				var time = datetime.add(15, 'minutes').format("HH:mm");
-				var bell = $(".event-time[date='" + date + "']:contains('" + time + "')").parent().find("i");
+				var time = datetime.add(15, 'minutes').format("h:mm A");
+				var bell = $(".schedule-event[date='" + date + "'][time='" + time + "'").find("i");
 				bell.removeClass("fa-bell-o");
 				bell.addClass("fa-bell");
 			}
@@ -171,16 +170,6 @@ var initNotifier = function() {
 		// Otherwise, initialize empty object in localStorage
 		localStorage.setItem("EventReminder", "{}");
 	}
-}
-
-// Load schedule from JSON file
-var loadSchedule = function() {
-	/*$.getJSON("/schedule.json", function(data) {
-		$.each(data, function(key, val) {
-			var event = '<div class="schedule-event row"><div class="event-time col-md-2" date="' + val.date + '">' + val.time + '</div><div class="event-name col-md-8">' + val.name + '</div><div class="event-reminder col-md-1"><i class="fa fa-bell-o" aria-hidden="true"></i></div><div class="event-details col-md-offset-2 col-md-10">' + val.description + '</div></div>';
-			$("#schedule-feed").append(event);
-		})
-	});*/
 }
 
 // Event reminder tracker
@@ -232,10 +221,6 @@ var listenRefresh = function() {
 	var refreshRef = database.ref('version/version');
 	var init = true;
 	var currentVersion;
-	// refreshRef.once('value').then(function(snapshot) {
-	// 	currentVersion = snapshot.val();
-	// 	console.log(currentVersion)
-	// })
 
 	refreshRef.on('value', function(snapshot) {
 		if (init) {
@@ -250,7 +235,6 @@ var listenRefresh = function() {
 
 // Notification function
 var notify = function(message) {
-	console.log(message);
 	if (window.Notification && Notification.permission !== "denied") {
 		Notification.requestPermission(function(status) {
 			var notification = new Notification("HackUCI", {
@@ -325,7 +309,7 @@ while ((iHour !== lastHour) || (iDay !== lastDay)) {
 var $scheduleFeed = $('#schedule-feed');
 
 schedule.forEach(function(event) {
-	var $scheduleEvent = $('<div class="schedule-event"><h3>' + event.title + '</h3></div>');
+	var $scheduleEvent = $('<div class="schedule-event"><h3><i class="fa fa-bell-o" aria-hidden="true"></i> ' + event.title + '</h3></div>');
 
 	// Calculate top
 	var dayMargin = 0;
@@ -368,7 +352,7 @@ schedule.forEach(function(event) {
 	$scheduleEvent.css('height', height);
 
 	if (event.duration === 0) {
-		$scheduleEvent.css('height', '57px');
+		$scheduleEvent.css('height', '75px');
 		$scheduleEvent.css('border-top', '#e74c3c 7px solid');
 	}
 
@@ -378,6 +362,15 @@ schedule.forEach(function(event) {
 		$scheduleEvent.css('width', '35%');
 		$scheduleEvent.css('right', '0');
 	}
+
+	if (event.day === 'Fri')
+		$scheduleEvent.attr('date', '2017-01-13');
+	else if (event.day === 'Sat')
+		$scheduleEvent.attr('date', '2017-01-14');
+	else if (event.day === 'Sun')
+		$scheduleEvent.attr('date', '2017-01-15');
+
+	$scheduleEvent.attr('time', event.starts);
 
 	$scheduleFeed.append($scheduleEvent);
 });
