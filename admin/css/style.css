@@ -76,8 +76,17 @@ h2 {
 
 /* Mobile */
 @media (max-width: 991px) {
+	#main {
+		overflow: visible;
+		left: 0 !important;
+	}
+
 	h2 {
 		margin-top: 0 !important;
+	}
+
+	#announcements {
+		padding: 5% 0% 3% 0% !important;
 	}
 
 	#announcements .card-timestamp {
@@ -91,5 +100,23 @@ h2 {
 
 	#announcements-list .card-content {
 		padding: 0% 0% 4% 5% !important;
+	}
+
+	#mentor {
+		padding: 5% 0% 3% 0% !important;
+	}
+
+	#mentor .card-timestamp {
+		width: 100% !important;
+		padding: 3% 2% 0% 4% !important;
+	}
+
+	#mentor .card-content {
+		margin-left: 0 !important;
+		padding: 0% 3% 3% 4% !important;
+	}
+
+	#schedule {
+		padding-top: 5%;
 	}
 }
