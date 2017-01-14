@@ -290,7 +290,7 @@ function numToHour(num) {
 }
 
 
-var iHour = 18;
+var iHour = 19;
 var iDay = 'Fri';
 
 var lastHour = 18;
@@ -321,7 +321,6 @@ while ((iHour !== lastHour) || (iDay !== lastDay)) {
 
 var $scheduleFeed = $('#schedule-feed');
 
-
 schedule.forEach(function(event) {
 	var $scheduleEvent = $('<div class="schedule-event"><h3>' + event.title + '</h3></div>');
 
@@ -345,7 +344,7 @@ schedule.forEach(function(event) {
 		if (event.day !== 'Fri') {
 			hourMargin = 150 * hour;
 		} else {
-			hourMargin = 150 * (hour - 5);
+			hourMargin = 150 * (hour - 7);
 		}
 	}
 

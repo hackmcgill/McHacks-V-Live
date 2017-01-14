@@ -1,11 +1,5 @@
 var schedule = [
     {
-        "title": "Sponsor Check-In",
-        "day": "Fri",
-        "starts": "5:00 PM",
-        "duration": 120
-    },
-    {
         "title": "Doors Open",
         "description": "Check-In Attendees",
         "day": "Fri",
