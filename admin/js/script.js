@@ -74,6 +74,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 						"message": text
 					});
 				}
+
+				return false;
 			});
 
 			// Delete announcement icon event handler
