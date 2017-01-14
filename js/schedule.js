@@ -36,6 +36,12 @@ var schedule = [
         "duration": 120
     },
     {
+        "title": "Smash Bros. Tournament",
+        "day": "Sat",
+        "starts": "8:00 AM",
+        "duration": 120
+    },
+    {
         "title": "Cylance Tech Talk",
         "day": "Sat",
         "starts": "3:00 PM",

@@ -76,6 +76,10 @@ $(function() {
 	$(".menu>a").click(function() {
 		// Switch tabs if it's not Devpost or GDocs link
 		if ($(this).attr('href') !== "https://hackatuci.devpost.com/" && $(this).attr('href') !== "https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform") {
+			// Switch underline from active tab to clicked tab
+			$(".active").removeClass("active");
+			$(this).addClass("active");
+
 			var tab = $(this).attr('href');
 
 			// Hide the current tab and display the new tab
@@ -289,11 +293,10 @@ function numToHour(num) {
 	return hour + ' ' + suffix;
 }
 
-
 var iHour = 19;
 var iDay = 'Fri';
 
-var lastHour = 18;
+var lastHour = 16;
 var lastDay = 'Sun';
 
 var cachedDay = '';
@@ -327,9 +330,9 @@ schedule.forEach(function(event) {
 	// Calculate top
 	var dayMargin = 0;
 	if (event.day === 'Sat') {
-		dayMargin = 6 * 150;
+		dayMargin = 5 * 150;
 	} else if (event.day === 'Sun') {
-		dayMargin = 30 * 150;
+		dayMargin = 29 * 150;
 	}
 
 	var pmMargin = 0;
@@ -348,10 +351,14 @@ schedule.forEach(function(event) {
 		}
 	}
 
-	var minute = parseInt(event.starts.substr(3, 3));
-	var minuteMargin = minute * 75 / 30;
+	var minuteStr = event.starts.substr(2, 3);
 
-	// console.log(dayMargin, pmMargin, hourMargin)
+	if (minuteStr[0] === ':') {
+		minuteStr = minuteStr.slice(1);
+	}
+	var minute = parseInt(minuteStr);
+
+	var minuteMargin = minute * 75 / 30;
 
 	var top = dayMargin + pmMargin + hourMargin + minuteMargin;
 	$scheduleEvent.css('top', top);
@@ -360,7 +367,17 @@ schedule.forEach(function(event) {
 	var height = 75 * (event.duration / 30);
 	$scheduleEvent.css('height', height);
 
+	if (event.duration === 0) {
+		$scheduleEvent.css('height', '57px');
+		$scheduleEvent.css('border-top', '#e74c3c 7px solid');
+	}
+
+	if (event.title === 'ACM Coding Challenge' || event.title === 'Hacking Begins') {
+		$scheduleEvent.css('width', '35%');
+	} else if (event.title === 'HTC Vive Demo' || event.title === 'Team Formation Activity') {
+		$scheduleEvent.css('width', '35%');
+		$scheduleEvent.css('right', '0');
+	}
+
 	$scheduleFeed.append($scheduleEvent);
-
 });
-

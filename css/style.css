@@ -154,6 +154,10 @@ body>.row {
 	/*top: 0;*/
 }
 
+.schedule-event:hover {
+	/*background: linear-gradient(to bottom right, #ecf0f1, #e8eced);*/
+}
+
 .schedule-event h3 {
 	color: black;
 	font-size: 16px;
@@ -224,7 +228,7 @@ body>.row {
 	font-weight: 600;
 	letter-spacing: 1px;
 	font-size: 1.25em;
-	padding: 0 1.75em 0 1.75em;
+	padding: 0 2.25em 0 2.25em;
 }
 
 .menu>a:hover {
