@@ -360,6 +360,18 @@ schedule.forEach(function(event) {
 	var height = 75 * (event.duration / 30);
 	$scheduleEvent.css('height', height);
 
+	if (event.duration === 0) {
+		$scheduleEvent.css('height', '57px');
+		$scheduleEvent.css('border-top', '#e74c3c 7px solid');
+	}
+
+	if (event.title === 'ACM Coding Challenge' || event.title === 'Hacking Begins') {
+		$scheduleEvent.css('width', '35%');
+	} else if (event.title === 'HTC Vive Demo' || event.title === 'Team Formation Activity') {
+		$scheduleEvent.css('width', '35%');
+		$scheduleEvent.css('right', '0');
+	}
+
 	$scheduleFeed.append($scheduleEvent);
 
 });
