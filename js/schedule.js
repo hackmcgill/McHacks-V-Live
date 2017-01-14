@@ -63,7 +63,7 @@ var schedule = [
         "title": "Restoration Media Mini Activity",
         "day": "Sat",
         "starts": "9:00 PM",
-        "duration": 60
+        "duration": 180
     },
     {
         "title": "Hacking Ends",
