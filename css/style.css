@@ -158,6 +158,10 @@ body>.row {
 	/*background: linear-gradient(to bottom right, #ecf0f1, #e8eced);*/
 }
 
+.schedule-event i {
+	color: #2980b9;
+}
+
 .schedule-event h3 {
 	color: black;
 	font-size: 16px;
