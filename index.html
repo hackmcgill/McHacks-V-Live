@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>HackUCI Live</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -16,6 +17,30 @@
 </head>
 
 <body>
+	<div id="mobile-menu-bar" class="hidden-md hidden-lg center">
+		<div>
+			<span id="mobile-menu-bar-title">HackUCI LIVE</span>
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</div>
+	</div>
+	<div class="modal fade" id="mobile-menu" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<span class="modal-title">Menu</span>
+				</div>
+				<div class="modal-body">
+					<a href="/">Schedule</a>
+					<a href="#announcements">Announcements</a>
+					<a href="#map">Map</a>
+					<a href="#mentor">Mentor</a>
+					<a href="https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform" target="_blank">Hardware</a>
+					<a href="https://hackatuci.devpost.com/" target="_blank">Devpost</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="row">
 		<div id="sidebar" class="col-md-3">
 			<div class="overlay">
@@ -56,13 +81,13 @@
 		</div>
 
 		<div id="main" class="col-md-9">
-			<div id="menu-bar">
+			<div id="menu-bar" class="hidden-xs hidden-sm">
 				<div class="menu">
 					<a href="#announcements" id="announcements-btn"><span>ANNOUNCEMENTS</span></a>
 					<a href="#map" id="map-btn"><span>MAP</span></a>
 					<a href="#mentor" id="mentor-btn"><span>MENTOR</span></a>
-					<a href="#prizes" id="prizes-btn"><span>PRIZES</span></a>
-					<a href="http://devpost.com" target="_blank">DEVPOST</a>
+					<a href="https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform" target="_blank"><span>HARDWARE</span></a>
+					<a href="https://hackatuci.devpost.com/" target="_blank">DEVPOST</a>
 					<a href="#faq" id="faq-btn"><span>FAQ</span></a>
 				</div>
 			</div>
@@ -82,7 +107,7 @@
 
 				<!-- Map Tab -->
 				<div id="map">
-
+					<img src="images/floorplan.png" />
 				</div>
 
 				<!-- Mentor Tab -->
@@ -98,7 +123,7 @@
 								<div class="form-group">
 									<label for="tableNumber" class="col-md-1 control-label">Table</label>
 									<div class="col-md-2">
-										<input type="number" class="form-control" id="tableNumber" placeholder="1">
+										<input type="number" class="form-control" id="tableNumber" min="1" max="68" placeholder="1">
 									</div>
 								</div>
 								<div class="form-group">
@@ -132,10 +157,88 @@
 					</div>
 				</div>
 
-				<!-- Prizes Tab -->
+				<!-- Prizes Tab
 				<div id="prizes">
-
-				</div>
+					<section id="prizes-section">
+						<div class="prizes-card">
+							<div class="prizes-card-icon">
+								<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+							</div>
+							<div class="prizes-card-content">
+								<div class="prizes-card-title">
+									Best Education Hack
+								</div>
+								<div class="prizes-card-prize">
+									Mechanical Keyboards
+								</div>
+								<div class="prizes-card-sponsor">
+								</div>
+							</div>
+						</div>
+						<div class="prizes-card">
+							<div class="prizes-card-icon">
+								<i class="fa fa-plug" aria-hidden="true"></i>
+							</div>
+							<div class="prizes-card-content">
+								<div class="prizes-card-title">
+									Best IoT Hack
+								</div>
+								<div class="prizes-card-prize">
+									Amazon Dots
+								</div>
+								<div class="prizes-card-sponsor">
+								</div>
+							</div>
+						</div>
+						<div class="prizes-card">
+							<div class="prizes-card-icon">
+								<i class="fa fa-bar-chart" aria-hidden="true"></i>
+							</div>
+							<div class="prizes-card-content">
+								<div class="prizes-card-title">
+									Best Data Science / Information Hack
+								</div>
+								<div class="prizes-card-prize">
+									Cylance Prize Pack
+								</div>
+								<div class="prizes-card-sponsor">
+								</div>
+							</div>
+						</div>
+						<div class="prizes-card">
+							<div class="prizes-card-icon">
+								<i class="fa fa-users" aria-hidden="true"></i>
+							</div>
+							<div class="prizes-card-content">
+								<div class="prizes-card-title">
+									Volunteer's Choice
+								</div>
+								<div class="prizes-card-prize">
+									$500
+								</div>
+								<div class="prizes-card-sponsor">
+								</div>
+							</div>
+						</div>
+						<div class="prizes-card">
+							<div class="prizes-card-icon">
+								<i class="fa fa-trophy" aria-hidden="true"></i>
+							</div>
+							<div class="prizes-card-content">
+								<div class="prizes-card-title">
+									General Category
+								</div>
+								<div class="prizes-card-prize">
+									Pariveda Solutions Prize Pack
+								</div>
+								<div class="prizes-card-sponsor">
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="sponsors-section">
+					</section>
+				</div> -->
 
 				<!-- FAQ Tab -->
 				<div id="faq">
