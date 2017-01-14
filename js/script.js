@@ -347,10 +347,14 @@ schedule.forEach(function(event) {
 		}
 	}
 
-	var minute = parseInt(event.starts.substr(3, 3));
-	var minuteMargin = minute * 75 / 30;
+	var minuteStr = event.starts.substr(2, 3);
 
-	// console.log(dayMargin, pmMargin, hourMargin)
+	if (minuteStr[0] === ':') {
+		minuteStr = minuteStr.slice(1);
+	}
+	var minute = parseInt(minuteStr);
+
+	var minuteMargin = minute * 75 / 30;
 
 	var top = dayMargin + pmMargin + hourMargin + minuteMargin;
 	$scheduleEvent.css('top', top);
