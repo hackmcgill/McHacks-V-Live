@@ -128,6 +128,7 @@ $(function() {
 	$("body").on("click", "#mentor button", function() {
 		var table = $("#tableNumber").val();
 		var tech = $("input[name=mentorTechOption]:checked").val();
+		var sponsor = $("input[name=mentorSponsorOption]:checked").val();
 		var text = $("textarea").val();
 		if (table === "") {
 			swal("Error!", "Please enter table number.", "error");
@@ -142,6 +143,7 @@ $(function() {
 				"datetime": moment().format('h:mm a'),
 				"table": table,
 				"tech": tech,
+				"sponsor": sponsor,
 				"message": text
 			});
 

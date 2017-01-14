@@ -173,7 +173,8 @@ var listenMentor = function() {
 				var message = itemSnapshot.val().message;
 				var table = itemSnapshot.val().table;
 				var tech = itemSnapshot.val().tech;
-				pushMentor(key, datetime, message, table, tech);
+				var sponsor = itemSnapshot.val().sponsor;
+				pushMentor(key, datetime, message, sponsor, table, tech);
 			});
 		})
 	});
@@ -194,9 +195,14 @@ var pushAnnouncement = function(key, datetime, message) {
 }
 
 // Push mentor requests card
-var pushMentor = function(key, datetime, message, table, tech) {
+var pushMentor = function(key, datetime, message, sponsor, table, tech) {
+	if (sponsor === "none")
+		sponsor = "";
+	else
+		sponsor = "[" + sponsor + "] ";
+
 	var mentorList = $("#mentor-list");
-	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-md-10"><b>Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
+	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-md-10"><b>' + sponsor + 'Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
 
 	mentorList.prepend(card);
 }
