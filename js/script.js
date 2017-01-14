@@ -151,6 +151,10 @@ $(function() {
 				"message": text
 			});
 
+			database.ref('mentor-notification').set({
+				"message": text
+			});
+
 			swal("Submitted!", "A mentor will drop by shortly.", "success");
 		}
 		return false;
