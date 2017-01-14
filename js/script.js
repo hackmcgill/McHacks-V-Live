@@ -43,6 +43,10 @@ $(function() {
 		$(this).find(".event-details").slideUp();
 	});
 
+	$("#live-circle").click(function() {
+		anteaster();
+	})
+
 	// Event reminder event handler
 	$(".schedule-event i").click(function() {
 		if ($(this).hasClass("fa-bell-o")) {
@@ -254,8 +258,6 @@ var pushAnnouncement = function(datetime, message) {
 	announcementsList.prepend(card);
 }
 
-// TESTING
-
 var $scheduleBackground = $('#schedule-background');
 
 function createScheduleHour(label) {
@@ -376,3 +378,12 @@ schedule.forEach(function(event) {
 
 	$scheduleFeed.append($scheduleEvent);
 });
+
+function anteaster() {
+	$('body').html('<div id="anteater-arena" tabindex="0"></div>');
+
+	var mySnakeBoard = new SNAKE.Board({
+		boardContainer: "anteater-arena",
+		fullScreen: true
+	});
+}
