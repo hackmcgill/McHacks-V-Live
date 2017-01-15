@@ -399,7 +399,7 @@ function anteaster() {
 		},
 		function(email){
 			localStorage.setItem("anteaster-username", email);
-			swal("Success!", "Login Successful!", "success");
+			swal("Success!", "Enjoy the game!", "success");
 		});
 	}
 
