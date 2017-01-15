@@ -276,7 +276,6 @@ SNAKE.Snake = SNAKE.Snake || (function() {
             switch (myDirection) {
                 case 0:
                     newHead.elm.style.transform = "rotate(270deg)";
-                    console.log("up");
                     break;
                 case 1:
                     newHead.elm.style.transform = "rotate(0deg)";
@@ -341,9 +340,36 @@ SNAKE.Snake = SNAKE.Snake || (function() {
                 var highScore = localStorage.jsSnakeHighScore;
                 if (highScore == undefined) localStorage.setItem('jsSnakeHighScore', me.snakeLength);
                 if (me.snakeLength > highScore) {
-                    alert('Congratulations! You have beaten your previous high score, which was ' + highScore + '.');
-                        localStorage.setItem('jsSnakeHighScore', me.snakeLength);
+                    swal("Congratulations!", "You have beaten your previous high score, which was " + highScore + ".", "success");
+                    localStorage.setItem('jsSnakeHighScore', me.snakeLength);
                 }
+
+                var email = localStorage.getItem("anteaster-username");
+
+                var leaderboardRef = database.ref("leaderboard");
+
+                leaderboardRef.orderByChild("score").once("value", function(item) {
+                    var first = true;
+                    item.forEach(function(user) {
+                        if (first) {
+                            var listing = user.key;
+                            var score = user.val().score;
+                            first = false;
+
+                            if (me.snakeLength > score) {
+                                var oldHighScoreRef = database.ref('leaderboard/' + listing);
+                                oldHighScoreRef.remove();
+                                var newHighScoreRef = database.ref('leaderboard');
+                                newHighScoreRef.push({
+                                    "email": email,
+                                    "score": me.snakeLength
+                                });
+                                swal("Congratulations!", "You made it to the top 10!", "success");
+                            }
+                        }
+                    })
+                })
+
 }
             recordScore();
             me.snakeHead.elm.style.zIndex = getNextHighestZIndex(me.snakeBody);
@@ -621,6 +647,22 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmPauseScreen.className = "snake-pause-screen";
             elmPauseScreen.innerHTML = "<div style='padding:10px;'>[Paused]<p/>Press [space] to unpause.</div>";
             
+            leaderboardPanel = document.createElement("div");
+            leaderboardPanel.className = "snake-panel-component";
+            leaderboardPanel.innerHTML = "<b>Leaderboard</b><br><ol type='1' class='row'><div class='col-md-6'><li id='l1'></li><li id='l2'></li><li id='l3'></li><li id='l4'></li><li id='l5'></li></div><div class='col-md-6'><li id='l6'></li><li id='l7'></li><li id='l8'></li><li id='l9'></li><li id='l10'></li></div></ol>";
+
+            var leaderboardRef = database.ref("leaderboard");
+
+            leaderboardRef.on("value", function(snapshot) {
+                leaderboardRef.orderByChild("score").once("value", function(item) {
+                    var counter = 10;
+                    item.forEach(function(highscore) {
+                        $("#l" + counter).text(highscore.val().email + ' - ' + highscore.val().score);
+                        counter--;
+                    })
+                })
+            });
+
             elmAboutPanel = document.createElement("div");
             elmAboutPanel.className = "snake-panel-component";
             elmAboutPanel.innerHTML = "<a href='http://live.hackuci.com' class='waves-effect waves-light btn-large apply-btn btn-animate amber darken-2 scroll-link'>Back to HackUCI LIVE</a>";
@@ -645,6 +687,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmPauseScreen.style.zIndex = 10000;
             elmContainer.appendChild(elmPauseScreen);
             elmContainer.appendChild(elmPlayingField);
+            elmContainer.appendChild(leaderboardPanel);
             elmContainer.appendChild(elmAboutPanel);
             elmContainer.appendChild(elmLengthPanel);
             elmContainer.appendChild(elmWelcome);
@@ -863,9 +906,13 @@ SNAKE.Board = SNAKE.Board || (function() {
             var bottomPanelHeight = hEdgeSpace - me.getBlockHeight();
             var pLabelTop = me.getBlockHeight() + fHeight + Math.round((bottomPanelHeight - 80)/2) + "px";
             
+            leaderboardPanel.style.top = me.getBlockHeight() + fHeight + Math.round((bottomPanelHeight - 80)/2) - 25 + "px";
+            leaderboardPanel.style.width = "500px";
+            leaderboardPanel.style.left = "35px";
+
             elmAboutPanel.style.top = pLabelTop;
             elmAboutPanel.style.width = "450px";
-            elmAboutPanel.style.left = Math.round(cWidth/2) - Math.round(450/2) + "px";
+            elmAboutPanel.style.left = Math.round(cWidth/2) - Math.round(450/2) + 200 + "px";
             
             elmLengthPanel.style.top = pLabelTop;
             elmLengthPanel.style.left = cWidth - 120 + "px";
