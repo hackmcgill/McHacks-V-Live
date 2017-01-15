@@ -712,7 +712,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             
             var welcomeTxt = document.createElement("div");
             var fullScreenText = "";
-            welcomeTxt.innerHTML = "Zot The Ant<p></p>Use the <strong>arrow keys</strong> on your keyboard to play the game.<p></p>";
+            welcomeTxt.innerHTML = "Zot The Ant<p></p>You found the Anteaster-egg! Use the <strong>arrow keys</strong> on your keyboard to play the game.<p></p>";
             var welcomeStart = document.createElement("button");
             welcomeStart.className = "waves-effect waves-light btn-large apply-btn btn-animate amber darken-2 scroll-link";
             welcomeStart.appendChild(document.createTextNode("Play Game"));
@@ -912,7 +912,7 @@ SNAKE.Board = SNAKE.Board || (function() {
 
             elmAboutPanel.style.top = pLabelTop;
             elmAboutPanel.style.width = "450px";
-            elmAboutPanel.style.left = Math.round(cWidth/2) - Math.round(450/2) + 200 + "px";
+            elmAboutPanel.style.left = Math.round(cWidth/2) - Math.round(450/2) + 150 + "px";
             
             elmLengthPanel.style.top = pLabelTop;
             elmLengthPanel.style.left = cWidth - 120 + "px";

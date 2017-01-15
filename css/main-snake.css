@@ -62,6 +62,10 @@ a.snake-link:hover {
     margin: 0px;
 }
 
+.snake-panel-component ol {
+    text-align: left;
+}
+
 .snake-snakebody-block {
     margin: 0px;
     padding: 0px;
