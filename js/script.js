@@ -386,6 +386,23 @@ schedule.forEach(function(event) {
 function anteaster() {
 	$('body').html('<div id="anteater-arena" tabindex="0"></div>');
 
+	if (!localStorage.getItem("anteaster-username")) {
+		swal({
+			title: "Enter Email",
+			text: "Email:",
+			type: "input",
+			inputType: "email",
+			closeOnConfirm: false,
+			confirmButtonText: "Continue",
+			animation: "slide-from-top",
+			inputPlaceholder: "hack@uci.edu"
+		},
+		function(email){
+			localStorage.setItem("anteaster-username", email);
+			swal("Success!", "Login Successful!", "success");
+		});
+	}
+
 	var mySnakeBoard = new SNAKE.Board({
 		boardContainer: "anteater-arena",
 		fullScreen: true
