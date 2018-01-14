@@ -265,7 +265,7 @@ var login = function() {
 		closeOnConfirm: false,
 		confirmButtonText: "Next",
 		animation: "slide-from-top",
-		inputPlaceholder: "hack@uci.edu"
+		inputPlaceholder: "john.do@mail.mcgill.ca"
 	},
 	function(email){
 		// Prompt for password
