@@ -1,9 +1,9 @@
 // Firebase config
 var config = {
-	apiKey: "AIzaSyDpcqm16yCXJC26V7LSUk3YKHA8hv-Tt9w",
-	authDomain: "hackuci-live.firebaseapp.com",
-	databaseURL: "https://hackuci-live.firebaseio.com",
-	storageBucket: "hackuci-live.appspot.com",
+	apiKey: "AIzaSyAOnVh1njYjjcksq5mtAarI8vfMPckY6q0",
+	authDomain: "mchacks-v-live-832b3.firebaseapp.com",
+	databaseURL: "https://mchacks-v-live-832b3.firebaseio.com/",
+	storageBucket: "mchacks-v-live-832b3.appspot.com",
 	messagingSenderId: "137852911349"
 };
 firebase.initializeApp(config);
