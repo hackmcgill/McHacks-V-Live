@@ -149,7 +149,7 @@ body>.row {
 	background: linear-gradient(to bottom right, #ffffff, #fcfcfc);
 	border-radius: 2.5px;
 	opacity: 0.92;
-	border-top: #2992d8 7px solid;
+	border-top: #f9b3ad 7px solid;
 	/*height: 150px;*/
 	/*top: 0;*/
 }
@@ -159,7 +159,7 @@ body>.row {
 }
 
 .schedule-event i {
-	color: #2980b9;
+	color: #f07c74;
 }
 
 .schedule-event h3 {
@@ -279,7 +279,7 @@ body>.row {
 .card {
 	width: 100%;
 	/*background-color: rgba(52, 152, 219, 0.9);*/
-	background: linear-gradient(to bottom right, #3498db, #2992d8);
+	background: linear-gradient(to bottom right, #f9b3ad, #f07c74);
 	border-radius: 2px;
 	color: #34495e;
 	/*box-shadow: 1px 1px 0.5px #2c3e50;*/
