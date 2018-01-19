@@ -46,8 +46,8 @@ body>.row {
 
 #sidebar {
 	/*background-color: #34495e;*/
-	/* Photo Courtesy Of University of California Irvine */
-	background-image: url('../images/bg.jpg');
+	/* Photo Courtesy Of McGill University */
+	background-image: url('../images/winterbg.png');
 	background-size: cover;
 	height: 100%;
 	padding-right: 0;
