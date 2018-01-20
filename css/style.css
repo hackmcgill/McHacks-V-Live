@@ -240,7 +240,7 @@ body>.row {
 }
 
 .menu>a.active>span {
-	border-bottom: 3px solid #636363;
+	border-bottom: 3px solid #ABABAB;
 }
 
 #mobile-menu-bar {
@@ -505,4 +505,7 @@ body>.row {
 #anteater-arena {
 	width: 100%;
 	height: 100%;
+}
+#a{
+	color: #636363
 }

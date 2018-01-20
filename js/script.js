@@ -285,8 +285,8 @@ function numToHour(num) {
 	return hour + ' ' + suffix;
 }
 
-var iHour = 19;
-var iDay = 'Fri';
+var iHour = 8;
+var iDay = 'Sat';
 
 var lastHour = 16;
 var lastDay = 'Sun';
@@ -302,9 +302,7 @@ while ((iHour !== lastHour) || (iDay !== lastDay)) {
 
 	// Iterate
 	if (iHour === 23) {
-		if (iDay === 'Fri') {
-			iDay = 'Sat';
-		} else if (iDay === 'Sat') {
+		if (iDay === 'Sat') {
 			iDay = 'Sun';
 		}
 
@@ -313,6 +311,35 @@ while ((iHour !== lastHour) || (iDay !== lastDay)) {
 		iHour += 1;
 	}
 }
+
+// var iHour = 19;
+// var iDay = 'Fri';
+
+// var lastHour = 16;
+// var lastDay = 'Sun';
+
+// var cachedDay = '';
+// while ((iHour !== lastHour) || (iDay !== lastDay)) {
+// 	if (cachedDay !== iDay) {
+// 		createScheduleHour(iDay + ', ' + numToHour(iHour))
+// 		cachedDay = iDay;
+// 	} else {
+// 		createScheduleHour(numToHour(iHour))
+// 	}
+
+// 	// Iterate
+// 	if (iHour === 23) {
+// 		if (iDay === 'Fri') {
+// 			iDay = 'Sat';
+// 		} else if (iDay === 'Sat') {
+// 			iDay = 'Sun';
+// 		}
+
+// 		iHour = 0;
+// 	} else {
+// 		iHour += 1;
+// 	}
+// }
 
 var $scheduleFeed = $('#schedule-feed');
 
@@ -329,14 +356,14 @@ schedule.forEach(function(event) {
 
 	var pmMargin = 0;
 	// Calculate PM Margin
-	if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Fri') {
+	if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Sat') {
 		pmMargin = 12 * 150;
 	}
 
 	var hourMargin = 0;
 	var hour = parseInt(event.starts.substr(0, 2));
 	if (hour !== 12) {
-		if (event.day !== 'Fri') {
+		if (event.day !== 'Sat') {
 			hourMargin = 150 * hour;
 		} else {
 			hourMargin = 150 * (hour - 7);
