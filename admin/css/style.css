@@ -20,7 +20,7 @@
 }
 
 .nav-pills>li.active>a {
-	background-color: #3498db;
+	background-color: #f9b3ad;
 	color: white;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .nav>li>a:hover {
-	background-color: #2980b9;
+	background-color: #f07c74;
 	color: white;
 }
 

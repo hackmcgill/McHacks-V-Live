@@ -79,7 +79,7 @@ body>.row {
 	height: 10px;
 	border-radius: 50%;
 	/*background-color: #ff0000;*/
-	background-color: #e74c3c;
+	background-color: #f07c74;
 	/*animation: blinking 1.5s infinite;*/
 	animation: breathe 2.5s infinite;
 	margin-right: 10px;
@@ -240,12 +240,12 @@ body>.row {
 }
 
 .menu>a.active>span {
-	border-bottom: 3px solid #b4e7f8;
+	border-bottom: 3px solid #636363;
 }
 
 #mobile-menu-bar {
 	height: 8%;
-	background: linear-gradient(to bottom right, #34495e, #2c3e50);
+	background: linear-gradient(to bottom right, #ababab, #636363);
 }
 
 #mobile-menu-bar span {
@@ -281,7 +281,7 @@ body>.row {
 	/*background-color: rgba(52, 152, 219, 0.9);*/
 	background: linear-gradient(to bottom right, #f9b3ad, #f07c74);
 	border-radius: 2px;
-	color: #34495e;
+	color: #cf1e85;
 	/*box-shadow: 1px 1px 0.5px #2c3e50;*/
 	margin-bottom: 2.5%;
 	margin-left: 0 !important;
@@ -312,7 +312,7 @@ body>.row {
 	float: left;
 	border-radius: 2px;
 	margin-right: 15px;
-	box-shadow: 1px 1px 0.5px #2c3e50;
+	box-shadow: 1px 1px 0.5px #c911a1;
 	background: linear-gradient(to bottom right, #E2E4F6, #BEB8EB);
 }
 
@@ -320,7 +320,7 @@ body>.row {
 	font-size: 3em;
 	padding: 0.5em;
 	border-radius: 100%;
-	background: #34495e;
+	background: #ac1a87;
 	color: #ecf0f1;
 	margin: 25px;
 }
@@ -419,7 +419,7 @@ body>.row {
 		min-height: 100%;
 		border: 0;
 		border-radius: 0;
-		background: linear-gradient(to bottom right, #34495e, #2c3e50);
+		background: linear-gradient(to bottom right, #ababab, #636363);
 		color: white;
 		font-size: 16px;
 		line-height: 1.5;
