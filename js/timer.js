@@ -1,6 +1,5 @@
-var HACKING_BEGINS = 'January 13, 2017 22:00:00 PST';
-var HACKING_ENDS = 'January 15, 2017 11:00:00 PST';
-
+var HACKING_BEGINS = 'February 3, 2018 11:00:00 EST';
+var HACKING_ENDS = 'February 4, 2018 11:00:00 EST';
 var hackingBegins = Date.parse(HACKING_BEGINS);
 var hackingEnds = Date.parse(HACKING_ENDS);
 

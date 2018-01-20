@@ -1,34 +1,35 @@
 var schedule = [
-    {
-        "title": "Doors Open",
-        "description": "Check-In Attendees",
-        "day": "Fri",
-        "starts": "7:00 PM",
-        "duration": 120,
-        "type": "Main"
-    },
-    {
-        "title": "Opening Ceremony",
-        "description": "Pacific Ballroom",
-        "day": "Fri",
-        "starts": "9:00 PM",
-        "duration": 60,
-        "type": "Main"
-    },
-    {
-        "title": "Hacking Begins",
-        "day": "Fri",
-        "starts": "10:00 PM",
-        "duration": 0,
-        "type": "Main"
-    },
-    {
-        "title": "Team Formation Activity",
-        "description": "Meet new hackers and form teams!",
-        "day": "Fri",
-        "starts": "10:00 PM",
-        "duration": 60
-    },
+    // {
+    //     "title": "Doors Open",
+    //     "description": "Check-In Attendees",
+    //     "day": "Fri",
+    //     "starts": "7:00 PM",
+    //     "duration": 120,
+    //     "type": "Main"
+    // },
+    // {
+    //     "title": "Out of Montreal Check-In",
+    //     "description": "If you are from out of Montreal this is when you check-in",
+    //     "day": "Fri",
+    //     "starts": "9:00 PM",
+    //     "duration": 60,
+    //     "type": "Main"
+    // },
+    // {
+    //     "title": "From Montreal Check-In",
+    //     "day": "Fri",
+    //     "description": "If you are from Montreal this is when you check-in",
+    //     "starts": "10:00 PM",
+    //     "duration": 0,
+    //     "type": "Main"
+    // },
+    // {
+    //     "title": "Team Formation Activity",
+    //     "description": "Meet new hackers and form teams!",
+    //     "day": "Fri",
+    //     "starts": "10:00 PM",
+    //     "duration": 60
+    // },
     {
         "title": "Cup Stacking Competition",
         "day": "Sat",
