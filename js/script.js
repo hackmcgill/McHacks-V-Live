@@ -356,7 +356,7 @@ schedule.forEach(function(event) {
 
 	var pmMargin = 0;
 	// Calculate PM Margin
-	if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Sat') {
+	if (event.starts.substr(-2, 2) === 'AM' && event.day !== 'Sat') {
 		pmMargin = 12 * 150;
 	}
 
