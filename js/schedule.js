@@ -3,7 +3,7 @@ var schedule = [
         "title": "Sponsor Check-In",
         "description": "Sponsors check in and get their table placements",
         "day": "Sat",
-        "starts": "2:30 AM",
+        "starts": "8:30 AM",
         "duration": 120,
         "type": "Main"
     },
@@ -11,7 +11,7 @@ var schedule = [
         "title": "Out of Montreal Check-In",
         "description": "If you are from out of Montreal this is when you check-in",
         "day": "Sat",
-        "starts": "3:00 AM",
+        "starts": "9:00 AM",
         "duration": 60,
         "type": "Main"
     },
@@ -19,39 +19,41 @@ var schedule = [
         "title": "From Montreal Check-In",
         "day": "Sat",
         "description": "If you are from Montreal this is when you check-in",
-        "starts": "4:00 AM",
+        "starts": "10:00 AM",
         "duration": 60,
         "type": "Main"
     },
-    // // {
-    // //     "title": "Team Formation Activity",
-    // //     "description": "Meet new hackers and form teams!",
-    // //     "day": "Fri",
-    // //     "starts": "10:00 PM",
-    // //     "duration": 60
-    // // },
-    // // {
-    // //     "title": "Cup Stacking Competition",
-    // //     "day": "Sat",
-    // //     "starts": "2:00 AM",
-    // //     "duration": 120
-    // // },
+    {
+        "title": "Opening Ceramonies",
+        "description": "Opening Ceramonies, held at McMed",
+        "day": "Sat",
+        "starts": "10:00 AM",
+        "duration": 100
+    },
+    {
+        "title": "Hacking Begins",
+        "day": "Sat",
+        "starts": "12:00 AM",
+        "duration": 30
+    },
     // {
-    //     "title": "Smash Bros. Tournament",
+    //     "title": "Lunch",
+    //     "description": "Come have lunch at", 
     //     "day": "Sat",
-    //     "starts": "8:00 AM",
-    //     "duration": 120
+    //     "starts": "12:30 PM",
+    //     "duration": 100
     // },
     // {
-    //     "title": "Cylance Tech Talk",
+    //     "title": "Dinner",
+    //     "description": "Come have dinner at",
     //     "day": "Sat",
-    //     "starts": "3:00 PM",
-    //     "duration": 60
+    //     "starts": "6:00 PM",
+    //     "duration": 100
     // },
     // {
-    //     "title": "ACM Coding Challenge",
-    //     "day": "Sat",
-    //     "starts": "4:00 PM",
+    //     "title": "Midnight Snack ",
+    //     "day": "Sun",
+    //     "starts": "12:00 AM",
     //     "duration": 120
     // },
     // {

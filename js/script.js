@@ -349,15 +349,15 @@ schedule.forEach(function(event) {
 	// Calculate top
 	var dayMargin = 0;
 	if (event.day === 'Sat') {
-		dayMargin = 5 * 150;
+		dayMargin = -1 * 150;
 	} else if (event.day === 'Sun') {
-		dayMargin = 29 * 150;
+		dayMargin = 16 * 150;
 	}
 
 	var pmMargin = 0;
 	// Calculate PM Margin
-	if (event.starts.substr(-2, 2) === 'AM' && event.day !== 'Sat') {
-		pmMargin = 12 * 150;
+	if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Sat') {
+		pmMargin = -13 * 150;
 	}
 
 	var hourMargin = 0;
@@ -391,19 +391,19 @@ schedule.forEach(function(event) {
 		$scheduleEvent.css('border-top', '#e74c3c 7px solid');
 	}
 
-	if (event.title === 'ACM Coding Challenge' || event.title === 'Hacking Begins') {
+	if (event.title === 'From Montreal Check-In' || event.title === 'Hacking Starts') {
 		$scheduleEvent.css('width', '35%');
-	} else if (event.title === 'HTC Vive Demo' || event.title === 'Team Formation Activity') {
+	} else if (event.title === 'HTC Vive Demo' || event.title === 'Opening Ceramonies') {
 		$scheduleEvent.css('width', '35%');
 		$scheduleEvent.css('right', '0');
 	}
 
 	if (event.day === 'Fri')
-		$scheduleEvent.attr('date', '2017-01-13');
+		$scheduleEvent.attr('date', '2018-02-02');
 	else if (event.day === 'Sat')
-		$scheduleEvent.attr('date', '2017-01-14');
+		$scheduleEvent.attr('date', '2018-02-03');
 	else if (event.day === 'Sun')
-		$scheduleEvent.attr('date', '2017-01-15');
+		$scheduleEvent.attr('date', '2018-02-04');
 
 	$scheduleEvent.attr('time', event.starts);
 
