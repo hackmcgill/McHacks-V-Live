@@ -33,7 +33,7 @@ var schedule = [
     {
         "title": "Hacking Begins",
         "day": "Sat",
-        "starts": "12:00 AM",
+        "starts": "12:00 PM",
         "duration": 30
     },
     // {
@@ -68,12 +68,12 @@ var schedule = [
     //     "starts": "9:00 PM",
     //     "duration": 180
     // },
-    // {
-    //     "title": "Hacking Ends",
-    //     "day": "Sun",
-    //     "starts": "11:00 AM",
-    //     "duration": 0
-    // },
+    {
+        "title": "Hacking Ends",
+        "day": "Sun",
+        "starts": "11:00 AM",
+        "duration": 0
+    },
     // {
     //     "title": "Expo",
     //     "day": "Sun",

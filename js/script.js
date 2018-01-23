@@ -349,21 +349,36 @@ schedule.forEach(function(event) {
 	// Calculate top
 	var dayMargin = 0;
 	if (event.day === 'Sat') {
-		dayMargin = -1 * 150;
+		dayMargin = -8 * 150;
 	} else if (event.day === 'Sun') {
 		dayMargin = 16 * 150;
 	}
 
 	var pmMargin = 0;
 	// Calculate PM Margin
-	if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Sat') {
-		pmMargin = -13 * 150;
+	if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Fri') {
+		pmMargin = 12 * 150;
 	}
+
+	// // Calculate top
+	// var dayMargin = 0;
+	// if (event.day === 'Sat') {
+	// 	dayMargin = 5 * 150;
+	// } else if (event.day === 'Sun') {
+	// 	dayMargin = 29 * 150;
+	// }
+
+	// var pmMargin = 0;
+	// // Calculate PM Margin
+	// if (event.starts.substr(-2, 2) === 'PM' && event.day !== 'Fri') {
+	// 	pmMargin = 12 * 150;
+	// }
+
 
 	var hourMargin = 0;
 	var hour = parseInt(event.starts.substr(0, 2));
 	if (hour !== 12) {
-		if (event.day !== 'Sat') {
+		if (event.day !== 'Fri') {
 			hourMargin = 150 * hour;
 		} else {
 			hourMargin = 150 * (hour - 7);
