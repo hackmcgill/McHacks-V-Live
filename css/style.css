@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Hind', sans-serif;
 }
 
 body>.row {
@@ -245,7 +245,8 @@ body>.row {
 
 #mobile-menu-bar {
 	height: 8%;
-	background: linear-gradient(to bottom right, #ababab, #636363);
+	/* background: linear-gradient(to bottom right, #ababab, #636363); */
+	background: #ababab;
 }
 
 #mobile-menu-bar span {
@@ -419,7 +420,8 @@ body>.row {
 		min-height: 100%;
 		border: 0;
 		border-radius: 0;
-		background: linear-gradient(to bottom right, #ababab, #636363);
+		background: #ababab;
+		/* background: linear-gradient(to bottom right, #ababab, #636363); */
 		color: white;
 		font-size: 16px;
 		line-height: 1.5;
