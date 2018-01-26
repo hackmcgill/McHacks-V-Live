@@ -108,7 +108,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					text: "You will not be able to recover this announcement!",
 					type: "warning",
 					showCancelButton: true,
-					confirmButtonColor: "#DD6B55",
+					confirmButtonColor: "#f07c74",
 					confirmButtonText: "Yes, delete it!",
 					closeOnConfirm: false,
 					html: false
@@ -128,7 +128,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					text: "This mentor request will be archived!",
 					type: "warning",
 					showCancelButton: true,
-					confirmButtonColor: "#DD6B55",
+					confirmButtonColor: "#f07c74",
 					confirmButtonText: "Yes, archive it!",
 					closeOnConfirm: false,
 					html: false
@@ -197,8 +197,8 @@ var listenMentor = function() {
 				var message = itemSnapshot.val().message;
 				var table = itemSnapshot.val().table;
 				var tech = itemSnapshot.val().tech;
-				var sponsor = itemSnapshot.val().sponsor;
-				pushMentor(key, datetime, message, sponsor, table, tech);
+				// var sponsor = itemSnapshot.val().sponsor;
+				pushMentor(key, datetime, message, table, tech);
 			});
 		})
 	});
@@ -231,14 +231,14 @@ var pushAnnouncement = function(key, datetime, message) {
 }
 
 // Push mentor requests card
-var pushMentor = function(key, datetime, message, sponsor, table, tech) {
-	if (sponsor === "none")
-		sponsor = "";
-	else
-		sponsor = "[" + sponsor + "] ";
+var pushMentor = function(key, datetime, message, table, tech) { // sponsor,
+	// if (sponsor === "none")
+	// 	sponsor = "";
+	// else
+	// 	sponsor = "[" + sponsor + "] ";
 
 	var mentorList = $("#mentor-list");
-	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-xs-11 col-sm-11 col-md-10"><b>' + sponsor + 'Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>';
+	var card = '<div class="card row"><div class="card-timestamp col-md-1">' + datetime + '<br>' + tech + '</div><div class="card-content col-xs-11 col-sm-11 col-md-10"><b>' + 'Table ' + table + ': </b>' + message + '</div><div class="card-delete center col-md-1"><a id="' + key + '" href="#"><i class="fa fa-check" aria-hidden="true"></i></a></div></div>'; //sponsor +
 
 	mentorList.prepend(card);
 }
@@ -247,9 +247,9 @@ var pushMentor = function(key, datetime, message, sponsor, table, tech) {
 var notify = function(message) {
 	if (window.Notification && Notification.permission !== "denied") {
 		Notification.requestPermission(function(status) {
-			var notification = new Notification("HackUCI Mentor Request", {
+			var notification = new Notification("McHacks Mentor Request", {
 				body: message,
-				icon: '../images/notif-logo.png'
+				icon: '../images/assets_gradient.png'
 			});
 		});
 	}
@@ -285,7 +285,7 @@ var login = function() {
 					title: "Error!",
 					text: error.code + ": " + error.message,
 					type: "error",
-					confirmButtonColor: "#DD6B55",
+					confirmButtonColor: "#f07c74",
 					confirmButtonText: "Try Again",
 					closeOnConfirm: false
 				},

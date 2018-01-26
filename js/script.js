@@ -132,14 +132,14 @@ $(function() {
 	$("body").on("click", "#mentor button", function() {
 		var table = $("#tableNumber").val();
 		var tech = $("input[name=mentorTechOption]:checked").val();
-		var sponsor = $("input[name=mentorSponsorOption]:checked").val();
+		// var sponsor = $("input[name=mentorSponsorOption]:checked").val();
 		var text = $("textarea").val();
 		if (table === "") {
 			swal("Error!", "Please enter table number.", "error");
 		} else if (table < 1 || table > 68) {
 			swal("Error!", "Please enter a valid table number.", "error");
 		} else if (tech === undefined) {
-			swal("Error!", "Please select a technology.", "error");
+			swal("Error!", "Please select an option.", "error");
 		} else if (text === "") {
 			swal("Error!", "Message is empty.", "error");
 		} else {
@@ -147,7 +147,7 @@ $(function() {
 				"datetime": moment().format('h:mm a'),
 				"table": table,
 				"tech": tech,
-				"sponsor": sponsor,
+				// "sponsor": sponsor,
 				"message": text
 			});
 
@@ -247,9 +247,9 @@ var listenRefresh = function() {
 var notify = function(message) {
 	if (window.Notification && Notification.permission !== "denied") {
 		Notification.requestPermission(function(status) {
-			var notification = new Notification("HackUCI", {
+			var notification = new Notification("McHacks", {
 				body: message,
-				icon: 'images/notif-logo.png'
+				icon: 'images/assets_gradient.png'
 			});
 		});
 	}
