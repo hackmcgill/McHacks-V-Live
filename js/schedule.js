@@ -34,56 +34,56 @@ var schedule = [
         "title": "Hacking Begins",
         "day": "Sat",
         "starts": "12:00 PM",
-        "duration": 30
+        "duration": 15
     },
     {
         "title": "Lunch",
         "description": "Come have lunch at", 
         "day": "Sat",
         "starts": "12:30 PM",
-        "duration": 100
+        "duration": 60
     },
-    // {
-    //     "title": "Dinner",
-    //     "description": "Come have dinner at",
-    //     "day": "Sat",
-    //     "starts": "6:00 PM",
-    //     "duration": 100
-    // },
-    // {
-    //     "title": "Midnight Snack ",
-    //     "day": "Sun",
-    //     "starts": "12:00 AM",
-    //     "duration": 120
-    // },
-    // {
-    //     "title": "HTC Vive Demo",
-    //     "day": "Sat",
-    //     "starts": "4:00 PM",
-    //     "duration": 270
-    // },
-    // {
-    //     "title": "Restoration Media Mini Activity",
-    //     "day": "Sat",
-    //     "starts": "9:00 PM",
-    //     "duration": 180
-    // },
+    {
+        "title": "Dinner",
+        "description": "Come have dinner at",
+        "day": "Sat",
+        "starts": "6:00 PM",
+        "duration": 60
+    },
+    {
+        "title": "Midnight Snack ",
+        "day": "Sun",
+        "starts": "12:00 AM",
+        "duration": 60
+    },
+    {
+        "title": "Breakfast",
+        "day": "Sun",
+        "starts": "7:00 AM",
+        "duration": 60
+    },
+    {
+        "title": "Lunch",
+        "day": "Sun",
+        "starts": "11:30 PM",
+        "duration": 60
+    },
     {
         "title": "Hacking Ends",
         "day": "Sun",
-        "starts": "11:00 AM",
-        "duration": 0
+        "starts": "12:00 PM",
+        "duration": 15
     },
-    // {
-    //     "title": "Expo",
-    //     "day": "Sun",
-    //     "starts": "12:30 PM",
-    //     "duration": 120
-    // },
-    // {
-    //     "title": "Closing Ceremony",
-    //     "day": "Sun",
-    //     "starts": "2:30 PM",
-    //     "duration": 60
-    // }
+    {
+        "title": "Project Expo",
+        "day": "Sun",
+        "starts": "12:30 PM",
+        "duration": 120
+    },
+    {
+        "title": "Closing Ceremony",
+        "day": "Sun",
+        "starts": "3:00 PM",
+        "duration": 60
+    }
 ];
