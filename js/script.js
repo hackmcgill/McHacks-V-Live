@@ -403,7 +403,7 @@ schedule.forEach(function(event) {
 
 	if (event.duration === 0) {
 		$scheduleEvent.css('height', '75px');
-		$scheduleEvent.css('border-top', '#e74c3c 7px solid');
+		$scheduleEvent.css('border-top', '#f07c74 7px solid');
 	}
 
 	if (event.title === 'From Montreal Check-In' || event.title === 'Hacking Starts') {

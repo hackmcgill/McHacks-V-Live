@@ -36,13 +36,13 @@ var schedule = [
         "starts": "12:00 PM",
         "duration": 30
     },
-    // {
-    //     "title": "Lunch",
-    //     "description": "Come have lunch at", 
-    //     "day": "Sat",
-    //     "starts": "12:30 PM",
-    //     "duration": 100
-    // },
+    {
+        "title": "Lunch",
+        "description": "Come have lunch at", 
+        "day": "Sat",
+        "starts": "12:30 PM",
+        "duration": 100
+    },
     // {
     //     "title": "Dinner",
     //     "description": "Come have dinner at",
