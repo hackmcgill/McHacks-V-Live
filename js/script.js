@@ -35,7 +35,7 @@ $(function() {
 
 	// Event reminder hovering animation
 	// $(".schedule-event").hover(function() {
-	$("body").on("onmouseover", ".schedule-event", function() {
+	$("body").on("mouseover", ".schedule-event", function() {
 		$(this).find(".event-details").slideDown();
 	});
 

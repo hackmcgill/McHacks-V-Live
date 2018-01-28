@@ -380,11 +380,6 @@ body>.row {
 #prizes-section {
 	display: block;
 }
-
-#sponsors-section {
-	display: block;
-}
-
 /* Mobile */
 @media (max-width: 991px) {
 	body>.row {
@@ -513,6 +508,11 @@ body>.row {
 #a{
 	color: #636363
 }
+/* Sponsors */
+#sponsors-section {
+	display: block;
+} 
+
 .fh5co-animated {
 	-webkit-animation-duration: .3s;
 	animation-duration: .3s;
