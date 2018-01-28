@@ -17,7 +17,7 @@ body>.row {
 	align-items: center;
 }
 
-#announcements, #map, #mentor, #prizes, #faq {
+#announcements, #map, #mentor, #sponsors, #prizes, #faq {
 	display: none;
 }
 
@@ -280,7 +280,8 @@ body>.row {
 .card {
 	width: 100%;
 	/*background-color: rgba(52, 152, 219, 0.9);*/
-	background: linear-gradient(to bottom right, #f9b3ad, #f07c74);
+	/* background: linear-gradient(to bottom right, #f9b3ad, #f07c74); */
+	background: #f9b3ad;
 	border-radius: 2px;
 	color: #f9b3ad;
 	/*box-shadow: 1px 1px 0.5px #2c3e50;*/
@@ -396,7 +397,7 @@ body>.row {
 		height: 92%;
 	}
 
-	#announcements, #map, #mentor, #prizes, #faq {
+	#announcements, #map, #mentor, #sponsors, #prizes, #faq {
 		padding: 5% 0.5% 3% 5%;
 	}
 
