@@ -512,3 +512,73 @@ body>.row {
 #a{
 	color: #636363
 }
+.fh5co-animated {
+	-webkit-animation-duration: .3s;
+	animation-duration: .3s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+  }
+  .classWithPad { 
+	margin:10px; 
+	margin:10px; 
+  }
+  .platinum {
+	flex-basis: 80%;
+	align-self: center;
+	padding: 2.5%;
+  }
+  .gold {
+	flex-basis: 50%;
+	align-self: center;
+	padding: 2%;
+  }
+  .silver {
+	flex-basis: 30%;
+	align-self: center;
+	margin: 2%;
+  }
+  .bronze {
+	flex-basis: 25%;
+	align-self: center;
+	margin: 2%;
+  }
+  .startup {
+	flex-basis: 15%;
+	align-self: center;
+	margin: 2%;
+  }
+  
+  .sponsor {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+  }
+  .center{
+	align-self: center
+  }
+  
+  .three-flex-parent {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+  }
+  .three-flex-child {
+	flex-basis: 30%;
+	align-self: center;
+	padding: 2%;
+	text-align: center;
+  }
+  .mlh-trust-badge {
+	padding: 1.75%;
+  }
+  .btn-xl {
+	padding: 10px 20px;
+	font-size: 40px;
+	border-radius: 20px;
+  }
