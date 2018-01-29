@@ -77,8 +77,8 @@ $(function() {
 
 	// Menu tabs event handler
 	$(".menu>a").click(function() {
-		// Switch tabs if it's not Devpost or GDocs link
-		if ($(this).attr('href') !== "https://goo.gl/forms/9hVhn9cFJKGHNtej1" && $(this).attr('href') !== "https://hackatuci.devpost.com/" && $(this).attr('href') !== "https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform") {
+		// Switch tabs if it's not Devpost or FAQs
+		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://mchacks.ca") {
 			// Switch underline from active tab to clicked tab
 			$(".active").removeClass("active");
 			$(this).addClass("active");
@@ -101,8 +101,8 @@ $(function() {
 
 	// Mobile menu event handler
 	$("#mobile-menu a").click(function() {
-		// Switch tabs if it's not Devpost or GDocs link
-		if ($(this).attr('href') !== "https://goo.gl/forms/9hVhn9cFJKGHNtej1" && $(this).attr('href') !== "https://hackatuci.devpost.com/" && $(this).attr('href') !== "https://docs.google.com/a/uci.edu/forms/d/e/1FAIpQLSc5ZSS16q5BbrDJThbzh7aqLP2T8JODVZ6s4hJKmln-F84AyQ/viewform") {
+		// Switch tabs if it's not Devpost or FAQs
+		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://mchacks.ca") {
 			var tab = $(this).attr('href');
 
 			// Hide the current tab and display the new tab
@@ -119,7 +119,7 @@ $(function() {
 			$("#mobile-menu-bar-title").text("Map");
 		else if (tab === "#mentor")
 			$("#mobile-menu-bar-title").text("Mentor Request");
-
+		
 		$("#mobile-menu").modal("hide");
 	})
 
@@ -181,6 +181,13 @@ var initNotifier = function() {
 		localStorage.setItem("EventReminder", "{}");
 	}
 }
+//change floors on the map page 
+function changeFloor() {
+    var img = document.getElementById("image");
+    img.src = this.value;
+    return false;
+}
+document.getElementById("floors").onchange = changeFloor;
 
 // Event reminder tracker
 var listenEventReminder = function() {
@@ -406,9 +413,9 @@ schedule.forEach(function(event) {
 		$scheduleEvent.css('border-top', '#f07c74 7px solid');
 	}
 
-	if (event.title === 'From Montreal Check-In' || event.title === 'Hacking Starts') {
+	if (event.orientation === "left" ) {
 		$scheduleEvent.css('width', '35%');
-	} else if (event.title === 'HTC Vive Demo' || event.title === 'Opening Ceramonies') {
+	} else if (event.orientation === "right") {
 		$scheduleEvent.css('width', '35%');
 		$scheduleEvent.css('right', '0');
 	}

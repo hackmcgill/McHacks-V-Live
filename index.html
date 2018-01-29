@@ -35,11 +35,11 @@
 					<a href="#index.html">Schedule</a>
 					<a href="#announcements">Announcements</a>
 					<a href="#map">Map</a-->
-					<a href="#mentor">Mentor</a>
-					<a href="#sponsors">Sponsors</a>
-					<a href="#prizes">Prizes</a>
+					<a href="#mentor">Mentor Request</a>
+					<!--a href="#sponsors">Sponsors</a-->
+					<!--a href="#prizes">Prizes</a-->
 					<a href="https://mchacks.ca">FAQs</a>	
-					<!--a href="https://hackatuci.devpost.com/" target="_blank">Devpost</a-->
+					<a href="https://mchacks2018.devpost.com/" target="_blank">Devpost</a>
 				</div>
 			</div>
 		</div>
@@ -88,11 +88,11 @@
 				<div class="menu">
 					<a href="#announcements" id="announcements-btn"><span>Announcements</span></a>
 					<a href="#map" id="map-btn"><span>Map</span></a-->
-					<a href="#mentor" id="mentor-btn"><span>Mentor</span></a>
-					<a href="#sponsors" id="sponsors-btn"><span>Sponsors</span></a>
-					<a href="#prizes" id="prizes-btn"><span>Prizes</span></a>
+					<a href="#mentor" id="mentor-btn"><span>Mentor Request</span></a>
+					<!--a href="#sponsors" id="sponsors-btn"><span>Sponsors</span></a-->
+					<!--a href="#prizes" id="prizes-btn"><span>Prizes</span></a-->
 					<a href="https://mchacks.ca" id="faqs-btn"><span>FAQs</span></a>					
-					<!--a href="https://hackatuci.devpost.com/" target="_blank">DEVPOST</a-->
+					<a href="https://mchacks2018.devpost.com/" target="_blank">Devpost</a>
 				</div>
 			</div>
 			<div id="content">
@@ -111,8 +111,15 @@
 
 				<!-- Map Tab -->
 				<div id="map">
-					<img src="images/basement.jpg" />
-					<img src="images/main floor.jpg" />
+					<div class="selectFloors">
+						<select id="floors">
+							<option value="images/basement.jpg">Basement</option>
+							<option value="images/main floor.jpg">Main Floor</option>
+							<!--option value="audi.png">Audi</option-->
+						</select>
+					</div>
+					<img id="image" src="images/basement.jpg" />
+					
 				</div>
 
 				<!-- Mentor Tab -->
@@ -168,100 +175,74 @@
 					</div>
 				</div>
 				<!-- Prizes Tab -->
-				<div id="prizes">
+				<!--div id="prizes">
 					<section id="prizes-section">
-						<div class="prizes-card">
-							<div class="prizes-card-icon">
-								<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+							<h1><u>Sponsored Prizes</u><h1>
+							<div class="col s12 m7">
+								<h2 class="header">The Achievement Unlocked Prize</h2>
+									<div class="card">
+											  <h3>PC Battlefront 2 Games, T-Shirts, Socks (4)</h3>
+											  <h4>This Prize is awarded to the most fun and creative game developement hack and is sponsored by EA.</h4>
+									</div>
+								<h2 class="header">The Best Design Prize</h2>
+									<div class="card">
+											  <h3>Sketch Licenses (4)</h3>
+											  <h4>This prize is awarded to the most <i>aesthetic</i> hack sporting nice UI/UX and is sponsored by Sketch.</h4>
+									</div>
+								<h2 class="header">The Best Newbie Prize</h2>
+									<div class="card">
+											  <h3>JetBrains Subscriptions (8)</h3>
+											  <h4>This prize is awarded to the best hack made by a <b>first-time</b> hackathon team and is sponsored by JetBrains.</h4>
+									</div>
+								<h2 class="header">The Protect and Serve Prize</h2>
+									<div class="card">
+											  <h3>1Password Licenses (4)</h3>
+											  <h4>This prize is awarded to the best hack that skaes up an issue in the security space and is sponsored by 1Password.</h4>
+									</div>
+								<h2 class="header">The Best Use of AI Prize (3)</h2>
+									<div class="card">
+											  <h3>Indico API Credit</h3>
+											  <h4>This prize is awarded to the best th and is sponsored by Indico.</h4>
+									</div>
+								<h2 class="header">The Full Health Restored Prize</h2>
+									<div class="card">
+											  <h3>Muse Headbands</h3>
+											  <h4>This prize is awarded to the best hack that can energize the future on health and wellness and is sponsored by Muse.</h4>
+									</div>		
+								</div>
+							<div class="col s12 m7">
+								<h1>Custom Prizes</h1>
+								<h2 class="header">Deloitte Pitch Contest</h2>
+									<div class="card">
+											  <h3>Google Home Mini's (4)</h3>
+											  <h4>This prize is awarded to the team with the best pitch and is sponsored and judged by Deloitte.</h4>
+									</div>
+								<h2 class="header">Spark API Prize</h2>
+									<div class="card">
+											  <h3>Cisco Custom Prize</h3>
+											  <h4>This prize is awarded to the team with the best use of Cisco Spark API/SDK and is sponsored and judged by Cisco</h4>
+									</div>
+								<h2 class="header">Telus FILL THIS IN Prize</h2>
+									<div class="card">
+											  <h3>Telus Custom Prize</h3>
+											  <h4>This prize NEEDS A DESCRIPTION and is sponsored and judged by Telus</h4>
+									</div>		
 							</div>
-							<div class="prizes-card-content">
-								<div class="prizes-card-title">
-									Best Hack
-								</div>
-								<div class="prizes-card-prize">
-									Prize 1
-								</div>
-								<div class="prizes-card-sponsor">
-								</div>
-							</div>
-						</div>
-						<div class="prizes-card">
-							<div class="prizes-card-icon">
-								<i class="fa fa-plug" aria-hidden="true"></i>
-							</div>
-							<div class="prizes-card-content">
-								<div class="prizes-card-title">
-									Best IoT Hack
-								</div>
-								<div class="prizes-card-prize">
-									Prize 2
-								</div>
-								<div class="prizes-card-sponsor">
-								</div>
-							</div>
-						</div>
-						<div class="prizes-card">
-							<div class="prizes-card-icon">
-								<i class="fa fa-bar-chart" aria-hidden="true"></i>
-							</div>
-							<div class="prizes-card-content">
-								<div class="prizes-card-title">
-									Best Data Science / Information Hack
-								</div>
-								<div class="prizes-card-prize">
-									Prize 3
-								</div>
-								<div class="prizes-card-sponsor">
-								</div>
-							</div>
-						</div>
-						<div class="prizes-card">
-							<div class="prizes-card-icon">
-								<i class="fa fa-users" aria-hidden="true"></i>
-							</div>
-							<div class="prizes-card-content">
-								<div class="prizes-card-title">
-									Volunteer's Choice
-								</div>
-								<div class="prizes-card-prize">
-									Prize 4
-								</div>
-								<div class="prizes-card-sponsor">
-								</div>
-							</div>
-						</div>
-						<div class="prizes-card">
-							<div class="prizes-card-icon">
-								<i class="fa fa-trophy" aria-hidden="true"></i>
-							</div>
-							<div class="prizes-card-content">
-								<div class="prizes-card-title">
-									General Category
-								</div>
-								<div class="prizes-card-prize">
-									Prize 4
-								</div>
-								<div class="prizes-card-sponsor">
-								</div>
-							</div>
-						</div>
 					</section>
 					
-				</div>
+				</div-->
 				<!-- Sponsor Tab -->
-				<div id="sponsors">
-						<img src="images/basement.jpg" />
-					<!--section id="sponsors-section">
+				<div id="sponsors">	
+					<section id="sponsors-section">
 							<div class="container">
-								<div class="card">
 									<div class="card-content">
 										<div class="col-md-12 section-heading text-center to-animate">
-											<h2>Our Partners</h2>
 											<div class="sponsor to-animate">
 												<div class="silver">
 													<a href="https://www.amazon.jobs/en/business_categories/university-recruiting" target="_blank">
 														<img src="images/sponsors/amazon.png" alt="Image" class="img-responsive">
 													</a>
+													<h3> This test is to see if I can add AWS description </h3>
 												</div>
 												<div class="silver">
 													<a href="https://www.cisco.com/c/en_ca/solutions/collaboration/ciscospark.html?dtid=pdidgd000366&ccid=cc000149" target="_blank">
@@ -407,7 +388,6 @@
 											</h4>
 										</div>
 									</div>
-								</div>
 							</div>
 					</section-->
 				</div>

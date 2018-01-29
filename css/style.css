@@ -306,6 +306,10 @@ body>.row {
 .card-content a {
 	color: #dbdddd;
 }
+/* Prizes */
+#prizes-section {
+	display: block;
+}
 
 .prizes-card {
 	background-color: #ffffff;
@@ -376,10 +380,6 @@ body>.row {
 	margin-left: 0.93%;
 }
 
-/* Prizes */
-#prizes-section {
-	display: block;
-}
 /* Mobile */
 @media (max-width: 991px) {
 	body>.row {
@@ -468,9 +468,9 @@ body>.row {
 	}
 
 	#map>img {
-		-ms-transform: rotate(90deg);
-		-webkit-transform: rotate(90deg);
-		transform: rotate(90deg);
+		/* -ms-transform: rotate(90deg);
+		-webkit-transform: rotate(90deg); */
+		/* transform: rotate(90deg); */
 		width: 150%;
 		margin-top: 50%;
 		margin-left: -25%;
@@ -493,6 +493,26 @@ body>.row {
 	#mentor .radio-inline {
 		margin-left: 0 !important;
 		margin-right: 10px;
+	}
+	.prizes-card {
+		background-color: #ffffff;
+		width: 9%;
+		text-align: center;
+		float: left;
+		border-radius: 1px;
+		margin-right: 7px;
+		box-shadow: 1px 1px 0.5px #ababab;
+		/* background: linear-gradient(to bottom right, #E2E4F6, #BEB8EB); */
+		background: #f9b3ad;
+	}
+	
+	.prizes-card-icon>i {
+		font-size: 3em;
+		padding: 0.5em;
+		border-radius: 100%;
+		background: #f9f9f9;
+		color: #f07c74;
+		margin: 25px;
 	}
 }
 
@@ -557,6 +577,7 @@ body>.row {
 	align-content: center;
 	flex-wrap: wrap;
   }
+  
   .center{
 	align-self: center
   }
@@ -575,11 +596,33 @@ body>.row {
 	padding: 2%;
 	text-align: center;
   }
-  .mlh-trust-badge {
-	padding: 1.75%;
-  }
   .btn-xl {
 	padding: 10px 20px;
 	font-size: 40px;
 	border-radius: 20px;
   }
+  #sponsors .card-content{
+	  color: #636363;
+  }
+  .card-image{
+	width: 15%;
+	align-content: right;
+  }
+  #prizes .card-content{
+	background: #f9f9f9;
+	border: #f07c74;
+	border-color: #f07c74;
+	align-content: right;
+	
+  }
+  #prizes .card{
+	/* width: 350px; */
+	border: 1px solid #e7685f;
+	box-shadow: 1px 1px 3px #ababab;
+	background: #f9f9f9;
+	padding: 10px;
+	/* min-height: 250px;
+	
+	margin: 10px; */
+ }
+
