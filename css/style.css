@@ -396,6 +396,10 @@ body>.row {
 		padding: 5% 0.5% 3% 5%;
 	}
 
+	#announcements .card{
+		width: 100%,
+	}
+
 	.modal.fade:not(.in) .modal-dialog {
 		-webkit-transform: translate3d(25%, 0, 0);
 		transform: translate3d(25%, 0, 0);
@@ -444,7 +448,7 @@ body>.row {
 		color: white;
 		opacity: 0.9;
 	}
-	
+
 	.modal-body a {
 		display: block;
 		color: white;
