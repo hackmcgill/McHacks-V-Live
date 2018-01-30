@@ -155,11 +155,12 @@ $(function() {
 				"message": text
 			});
 
-			swal("Submitted!", "A mentor will drop by shortly.", "success").then(
-				setTimeout(function () {
-					window.location=document.getElementById('foo').href;
-				}, 5000)
-			  )
+			swal("Submitted!", "A mentor will drop by shortly.", "success")
+			// .then(
+			// 	setTimeout(function () {
+			// 		window.location=document.getElementById('foo').href;
+			// 	}, 5000)
+			//   )
 		}
 		return false;
 	});
