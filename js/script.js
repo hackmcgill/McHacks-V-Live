@@ -78,7 +78,7 @@ $(function() {
 	// Menu tabs event handler
 	$(".menu>a").click(function() {
 		// Switch tabs if it's not Devpost or FAQs
-		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://mchacks.ca") {
+		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://mchacks.ca" && $(this).attr('href') !== "https://live.mchacks.ca") {
 			// Switch underline from active tab to clicked tab
 			$(".active").removeClass("active");
 			$(this).addClass("active");
@@ -102,7 +102,7 @@ $(function() {
 	// Mobile menu event handler
 	$("#mobile-menu a").click(function() {
 		// Switch tabs if it's not Devpost or FAQs
-		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://mchacks.ca") {
+		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://mchacks.ca" && $(this).attr('href') !== "https://live.mchacks.ca") {
 			var tab = $(this).attr('href');
 
 			// Hide the current tab and display the new tab
