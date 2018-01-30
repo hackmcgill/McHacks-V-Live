@@ -158,7 +158,7 @@ $(function() {
 			swal("Submitted!", "A mentor will drop by shortly.", "success");
 			setTimeout(function () {
 				window.location=document.getElementById('foo').href;
-			}, 3000);	
+			}, 10000);	
 		}
 		return false;
 	});
