@@ -36,11 +36,11 @@ $(function() {
 	// Event reminder hovering animation
 	// $(".schedule-event").hover(function() {
 	$("body").on("mouseover", ".schedule-event", function() {
-		$(this).find(".event-details").slideDown();
+		$(this).find(".event.description").slideDown();
 	});
 
 	$("body").on("mouseleave", ".schedule-event", function() {
-		$(this).find(".event-details").slideUp();
+		$(this).find(".event.description").slideUp();
 	});
 
 	$("#live-circle").click(function() {
