@@ -585,5 +585,7 @@ body>.row {
 	  color: #636363;
   }
   
- 
+  .transparency {
+	  opacity: 0.0;
+  }
 

@@ -35,11 +35,11 @@ $(function() {
 
 	// Event reminder hovering animation
 	// $(".schedule-event").hover(function() {
-	$("body").on("mouseover", ".schedule-event", function() {
+	$("schedule-event").on("mouseover", ".schedule-event", function(event) {
 		$(this).find(".event.description").slideDown();
 	});
 
-	$("body").on("mouseleave", ".schedule-event", function() {
+	$("schedule-event").on("mouseleave", ".schedule-event", function(event) {
 		$(this).find(".event.description").slideUp();
 	});
 
@@ -47,6 +47,16 @@ $(function() {
 		anteaster();
 	})
 
+	// document.getElementById("schedule-event").onmouseover = function() {mouseOver()};
+	// document.getElementById("schedule-event").onmouseout = function() {mouseOut()};
+
+	// function mouseOver(event) {
+    // 	document.getElementById("schedule-event").style.color = event.description;
+	// }
+
+	// function mouseOut() {
+    // 	document.getElementById("schedule-event").style.color = event.title;
+	// }
 	// Event reminder event handler
 	$(".schedule-event i").click(function() {
 		if ($(this).hasClass("fa-bell-o")) {
@@ -74,7 +84,25 @@ $(function() {
 			localStorage.setItem("EventReminder", JSON.stringify(eventReminder));
 		}
 	});
+	// $(".schedule-event j").click(function(schedule) {
+	// 	if ($(this).hasClass("fa-plus-square-o")) {
+	// 		$(this).removeClass("fa-plus-square-o");
+	// 		$(this).addClass("fa-plus-square");
+	// 		// var descript = $(this).getElementById("transparency");
+	// 		var message = $(this).parent().text().substr(0);
+	// 		var message2 = document.getElementsByClassName("transparency");
 
+	// 		// var index = message.indexOf(descript);
+	// 		// var title = $(this).parent().text().slice(0, index);
+	// 		// var description = $(this).parent().text().slice(index, message.length);
+	// 		swal(message2, message, "success");
+	// 	} else {
+	// 		$(this).removeClass("fa-plus-square");
+	// 		$(this).addClass("fa-plus-square-o");
+	// 	}
+	// });
+	
+	
 	// Menu tabs event handler
 	$(".menu>a").click(function() {
 		// Switch tabs if it's not Devpost or FAQs
@@ -356,8 +384,8 @@ while ((iHour !== lastHour) || (iDay !== lastDay)) {
 var $scheduleFeed = $('#schedule-feed');
 
 schedule.forEach(function(event) {
-	var $scheduleEvent = $('<div class="schedule-event"><h3><i class="fa fa-bell-o" aria-hidden="true"></i> ' + event.title + '</h3></div>');
-
+	var $scheduleEvent = $('<div class="schedule-event"><h3><i class="fa fa-bell-o" aria-hidden="true"></i>' + event.title + '</h3></div>');
+	//<j class="fa fa-plus-square-o" aria-hidden="true"></j> '<div class=transparency>' + event.description +'<div>' + 
 	// Calculate top
 	var dayMargin = 0;
 	if (event.day === 'Sat') {

@@ -1,14 +1,5 @@
 var schedule = [
     {
-        "title": "Sponsor Check-In",
-        "description": "Sponsors check in and get their table placements",
-        "day": "Sat",
-        "starts": "8:30 AM",
-        "duration": 60,
-        "type": "Main",
-        "orientation": "left"
-    },
-    {
         "title": "Out of Town Check-In",
         "description": "If you are from out of Montreal this is when you check-in",
         "day": "Sat",
@@ -21,25 +12,18 @@ var schedule = [
         "title": "From Montreal Check-In",
         "day": "Sat",
         "description": "If you are from Montreal this is when you check-in",
-        "starts": "10:00 AM",
+        "starts": "9:30 AM",
         "duration": 60,
-        "type": "Main"
+        "type": "Main",
+        "orientation": "left"
     },
     {
-        "title": "Opening Ceramonies",
-        "description": "Opening Ceramonies, held at McMed",
+        "title": "Opening Ceremonies   ",
+        "description": "Opening Ceremonies, held at McMed",
         "day": "Sat",
         "starts": "10:30 AM",
         "duration": 90,
         "orientation": "right"
-    },
-    {
-        "title": "Late Check-In",
-        "description": "If you are late you continue to check-in at SSMU",
-        "day": "Sat",
-        "starts": "10:30 AM",
-        "duration": 90,
-        "orientation": "left"
     },
     {
         "title": "Hacking Begins",
@@ -112,7 +96,7 @@ var schedule = [
         "orientation": "left"
     },
     {
-        "title": "Happy Hour (Hackathon Organizers Meetup)",
+        "title": "Happy Hour at Gerts",
         "description": "The Happiest Hours at McHacks",
         "day": "Sat",
         "starts": "5:00 PM",
@@ -127,7 +111,7 @@ var schedule = [
         "duration": 60
     },
     {
-        "title": "Gerts PhotoBooth",
+        "title": "PhotoBooth at Gerts",
         "description": "Take Photos of your fun time at McHacks at Gerts in the basement",
         "day": "Sat",
         "starts": "8:00 PM",
@@ -135,7 +119,7 @@ var schedule = [
         "orientation": "left"
     },
     {
-        "title": "Meetup #1 (Women/Minorities in Tech)",
+        "title": "Women in Tech Meetup",
         "description": "A Meetup for Women/Minorites in Room 108",
         "day": "Sat",
         "starts": "8:30 PM",
@@ -143,7 +127,7 @@ var schedule = [
         "orientation": "right"
     },
     {
-        "title": "Meetup #2 (High School Hackers)",
+        "title": "High School Hackers Meetup",
         "description": "A Meetup for High School Hackers in Room 108",
         "day": "Sat",
         "starts": "9:30 PM",
@@ -173,7 +157,7 @@ var schedule = [
     {
         "title": "Lunch",
         "day": "Sun",
-        "starts": "1:00 PM",
+        "starts": "11:30 AM",
         "duration": 60,
         "orientation": "right"
     },
@@ -182,7 +166,8 @@ var schedule = [
         "day": "Sun",
         "description": "Hacking ends at 12:00 PM Sunday Feb 4th 2018",
         "starts": "12:00 PM",
-        "duration": 15
+        "duration": 15,
+        "orientation": "left"
     },
     {
         "title": "Project Expo",
