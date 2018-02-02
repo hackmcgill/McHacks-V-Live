@@ -633,3 +633,54 @@ body>.row {
 	align-items: center;
 	padding: 20em 0;
   }
+  .panel-group {
+	margin-bottom: 20px;
+	box-sizing: border-box;
+  }
+  .panel-group .panel {
+	margin-bottom: 0;
+	border-radius: 4px;
+  }
+  .panel-group .panel + .panel {
+	margin-top: 5px;
+  }
+  .panel-group .panel-heading {
+	border-bottom: 0;
+  }
+  .panel-group .panel-heading + .panel-collapse > .panel-body,
+  .panel-group .panel-heading + .panel-collapse > .list-group {
+	border-top: 1px solid #ddd;
+  }
+  .panel-group .panel-footer {
+	border-top: 0;
+  }
+  .panel-group .panel-footer + .panel-collapse .panel-body {
+	border-bottom: 1px solid #ddd;
+  }
+  .panel {
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+			box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  }
+  .panel-heading {
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+  }
+  .panel-heading > .dropdown .dropdown-toggle {
+	color: inherit;
+  }
+  .panel-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
+	color: inherit;
+  }
+  .container{
+	  align-content: center;
+	  width: 80%;
+  }
