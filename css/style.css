@@ -608,3 +608,11 @@ body>.row {
 	align-content: center;
 	flex-wrap: wrap;
   }
+  .floor-menu{
+	height: 100px;
+	background-color: #ecf0f1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20em 0;
+  }

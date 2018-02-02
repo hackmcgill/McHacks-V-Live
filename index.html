@@ -104,7 +104,7 @@
 				</div>
 
 
-				<script>
+				<!--script>
 					function base()
 					{
 						document.getElementById("image").src="images/basement.png";
@@ -121,11 +121,29 @@
 					{
 						document.getElementById("image").src="images/3rd_floor.png";
 					}
-				</script>
+				</script-->
 
 				<!-- Map Tab -->
 				<div id="map">
-					<div class="bronze">
+						<script>
+								function base()
+								{
+									document.getElementById("image").src="images/basement.png";
+								}
+								function main()
+								{
+									document.getElementById("image").src="images/main_floor.png";
+								}
+								function second()
+								{
+									document.getElementById("image").src="images/2nd_floor.png";
+								}
+								function third()
+								{
+									document.getElementById("image").src="images/3rd_floor.png";
+								}
+							</script>
+					<div class="startup">
 							<div class="floor_menu" style="text-align: center; font-size:22px">
 								<a onclick="base()">
 									<span>Basement</span>
