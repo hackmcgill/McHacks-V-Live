@@ -54,7 +54,8 @@ body>.row {
 }
 
 .overlay {
-	background: rgba(0,0,0,0.5);
+	/* background: #ababab; */
+	background: rgba(0,0,0,0.3);
 	height: 100%;
 	display: flex;
 	flex-flow: column;
@@ -230,9 +231,9 @@ body>.row {
 
 .menu>a {
 	font-weight: 600;
-	letter-spacing: 1px;
+	letter-spacing: .5px;
 	font-size: 1.25em;
-	padding: 0 1.5em 0 1.5em;
+	padding: 0 1.0em 0 1.0em;
 }
 
 .menu>a:hover {
@@ -426,7 +427,7 @@ body>.row {
 		color: white;
 		font-size: 16px;
 		line-height: 1.5;
-		padding-left: 2.5%;
+		padding-left: 2%;
 	}
 
 	.modal-header {
