@@ -23,6 +23,6 @@ We built Live-McHacks by forking HackUCI's github repo [https://github.com/hacku
 
 ![FAQs](images/readmePics/faqs.png)
 
-![Map](images/maps.png)
+![Map](images/readmePics/maps.png)
 
-![APIs & Resources](images/apis&resources.png)
+![APIs & Resources](images/readmePics/apis&resources.png)
