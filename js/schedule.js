@@ -111,14 +111,6 @@ var schedule = [
         "duration": 60
     },
     {
-        "title": "PhotoBooth in Gerts",
-        "description": "Take Photos of your fun time at McHacks at Gerts in the basement",
-        "day": "Sat",
-        "starts": "8:00 PM",
-        "duration": 120,
-        "orientation": "left"
-    },
-    {
         "title": "Women in Tech Meetup in SSMU 108",
         "description": "A Meetup for Women/Minorites in Room 108",
         "day": "Sat",

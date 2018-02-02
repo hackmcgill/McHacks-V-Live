@@ -106,7 +106,7 @@ $(function() {
 	// Menu tabs event handler
 	$(".menu>a").click(function() {
 		// Switch tabs if it's not Devpost or Hardware
-		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://hardware.mlh.io/events/mchacks") {
+		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://hardware.mlh.io/events/mchacks-2018") {
 			// Switch underline from active tab to clicked tab
 			$(".active").removeClass("active");
 			$(this).addClass("active");
@@ -130,7 +130,7 @@ $(function() {
 	// Mobile menu event handler
 	$("#mobile-menu a").click(function() {
 		// Switch tabs if it's not Devpost or Refresh to Mobile Schedule
-		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://hardware.mlh.io/events/mchacks") {
+		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://hardware.mlh.io/events/mchacks-2018") {
 			var tab = $(this).attr('href');
 
 			// Hide the current tab and display the new tab
