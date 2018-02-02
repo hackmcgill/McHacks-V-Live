@@ -270,6 +270,7 @@ body>.row {
 	height: 100%;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
+	align-content: center;
 	overflow: scroll;
 }
 
@@ -581,17 +582,6 @@ body>.row {
 	padding: 2%;
 	text-align: center;
   }
-  .contact-flex-child{
-	flex-basis: 30%;
-	align-self: center;
-	padding: 2%;
-	text-align: center; 
-  }
-  .btn-xl {
-	padding: 10px 20px;
-	font-size: 40px;
-	border-radius: 20px;
-  }
   #sponsors .card-content{
 	  color: #636363;
   }
@@ -601,6 +591,7 @@ body>.row {
   }
   #fh5co-about {
 	padding: 4em 0;
+	align-content: center;
   }
   .section-heading {
 	float: left;
