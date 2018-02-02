@@ -18,8 +18,8 @@ var schedule = [
         "orientation": "left"
     },
     {
-        "title": "Opening Ceremonies in McMed",
-        "description": "Opening Ceremonies, held at McMed",
+        "title": "Opening Ceremonies in McIntyre Medical ",
+        "description": "Opening Ceremonies, held at McIntyre Medical ",
         "day": "Sat",
         "starts": "10:30 AM",
         "duration": 90,
@@ -32,8 +32,8 @@ var schedule = [
         "duration": 15
     },
     {
-        "title": "Team Formation in Lev Bukman",
-        "description": "Help find teammates in Lev Bukhman",
+        "title": "Team Formation in RM 203",
+        "description": "Help find teammates in SSMU 203",
         "day": "Sat",
         "starts": "12:15 PM",
         "duration": 30,
@@ -48,40 +48,40 @@ var schedule = [
         "orientation": "right"
     },
     {
-        "title": "Lighthouse Labs Workshop in Madeline Parent",
-        "description": "Workshop held by Lighthouse Labs in Madeline Parent",
+        "title": "Lighthouse Labs Workshop in SSMU 202",
+        "description": "Workshop held by Lighthouse Labs in SSMU 202",
         "day": "Sat",
         "starts": "1:00 PM",
         "duration": 120,
         "orientation": "left"
     },
     {
-        "title": "Google Workshop in Lev Bukhman",
-        "description": "Workshop held by Google in Lev Bukhman",
+        "title": "Google Workshop in SSMU 203",
+        "description": "Workshop held by Google in SSMU 203",
         "day": "Sat",
         "starts": "1:00 PM",
         "duration": 60,
         "orientation": "right"
     },
     {
-        "title": "Nuance Workshop in Lev Bukhman",
-        "description": "Workshop held by Nuance in Lev Bukhman",
+        "title": "Nuance Workshop in SSMU 203",
+        "description": "Workshop held by Nuance in SSMU 203",
         "day": "Sat",
         "starts": "2:00 PM",
         "duration": 60,
         "orientation": "right"
     },
     {
-        "title": "Thinking Capital Workshop in Madeline Parent",
-        "description": "Workshop held by Thinking Capital in Madeline Parent",
+        "title": "Thinking Capital Workshop in SSMU 202",
+        "description": "Workshop held by Thinking Capital in SSMU 202",
         "day": "Sat",
         "starts": "3:00 PM",
         "duration": 60,
         "orientation": "right"
     },
     {
-        "title": "Challenge: Loyalty 1 in Lev Bukhman",
-        "description": "A Challenge held in Lev Bukhman by Loyalty 1",
+        "title": "Challenge: Loyalty 1 in SSMU 203",
+        "description": "A Challenge held in SSMU 203 by Loyalty 1",
         "day": "Sat",
         "starts": "3:00 PM",
         "duration": 120,
@@ -169,7 +169,7 @@ var schedule = [
         "orientation": "left"
     },
     {
-        "title": "Closing Ceremony in McMed",
+        "title": "Closing Ceremony in McIntyre Medical ",
         "day": "Sun",
         "starts": "3:00 PM",
         "duration": 60
