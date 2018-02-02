@@ -218,13 +218,6 @@ var initNotifier = function() {
 		localStorage.setItem("EventReminder", "{}");
 	}
 }
-//change floors on the map page 
-function changeFloor() {
-    var img = document.getElementById("image");
-    img.src = this.value;
-    return false;
-}
-document.getElementById("floors").onchange = changeFloor;
 
 // Event reminder tracker
 var listenEventReminder = function() {
