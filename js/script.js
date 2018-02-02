@@ -106,7 +106,7 @@ $(function() {
 	// Menu tabs event handler
 	$(".menu>a").click(function() {
 		// Switch tabs if it's not Devpost or FAQs
-		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://mchacks.ca" && $(this).attr('href') !== "https://live.mchacks.ca/index.html") {
+		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://live.mchacks.ca/index.html") {
 			// Switch underline from active tab to clicked tab
 			$(".active").removeClass("active");
 			$(this).addClass("active");
@@ -129,8 +129,8 @@ $(function() {
 
 	// Mobile menu event handler
 	$("#mobile-menu a").click(function() {
-		// Switch tabs if it's not Devpost or FAQs
-		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://mchacks.ca" && $(this).attr('href') !== "https://live.mchacks.ca/index.html") {
+		// Switch tabs if it's not Devpost or Refresh to Mobile Schedule
+		if ($(this).attr('href') !== "https://mchacks2018.devpost.com/" && $(this).attr('href') !== "https://live.mchacks.ca/index.html") {
 			var tab = $(this).attr('href');
 
 			// Hide the current tab and display the new tab
@@ -147,6 +147,10 @@ $(function() {
 			$("#mobile-menu-bar-title").text("Map");
 		else if (tab === "#mentor")
 			$("#mobile-menu-bar-title").text("Mentor Request");
+		else if (tab = "#faq")
+			$("#mobile-menu-bar-title").text("FAQs");
+		else if (tab = "#api")
+			$("#mobile-menu-bar-title").text("APIs & Resources");
 		
 		$("#mobile-menu").modal("hide");
 	})
