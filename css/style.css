@@ -577,13 +577,7 @@ body>.row {
 	flex-basis: 30%;
 	align-self: center;
 	padding: 2%;
-	text-align: left;
-  }
-  .single-flex-child{
-	flex-basis: 50%;
-	align-self: center;
-	padding: 2%;
-	text-align: left; 
+	text-align: center;
   }
   .contact-flex-child{
 	flex-basis: 30%;
