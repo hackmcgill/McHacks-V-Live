@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<title>McHacks V Live</title>
@@ -20,7 +21,7 @@
 <body>
 	<div id="mobile-menu-bar" class="hidden-md hidden-lg center">
 		<div>
-			<span id="mobile-menu-bar-title">McHacks V LIVE</span>
+			<span id="mobile-menu-bar-title">McHacks V Live</span>
 			<i class="fa fa-bars" aria-hidden="true"></i>
 		</div>
 	</div>
@@ -28,19 +29,21 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 					<span class="modal-title">Menu</span>
 				</div>
 				<div class="modal-body">
 					<a href="https://live.mchacks.ca/index.html">Schedule</a>
 					<a href="#announcements">Announcements</a>
 					<a href="#map">Map</a-->
-					<a href="#mentor">Mentor Request</a>
-					<a href="#api">APIs &amp Resourses</a-->
-					<!--a href="#prizes">Prizes</a-->
-					<a href="https://hardware.mlh.io/events/mchacks-2018">Hardware</a>
-					<a href="#faq">FAQs</a>	
-					<a href="https://mchacks2018.devpost.com/" target="_blank">Devpost</a>
+						<a href="#mentor">Mentor Request</a>
+						<a href="#api">APIs &amp Resourses</a-->
+							<!-- <a href="#prizes">Prizes</a> -->
+							<a href="https://hardware.mlh.io/events/mchacks-2018">Hardware</a>
+							<a href="#faq">FAQs</a>
+							<a href="https://mchacks2018.devpost.com/" target="_blank">Devpost</a>
 				</div>
 			</div>
 		</div>
@@ -87,14 +90,26 @@
 		<div id="main" class="col-md-9">
 			<div id="menu-bar" class="hidden-xs hidden-sm">
 				<div class="menu">
-					<a href="#announcements" id="announcements-btn"><span>Announcements</span></a>
-					<a href="#map" id="map-btn"><span>Map</span></a-->
-					<a href="#mentor" id="mentor-btn"><span>Mentor Request</span></a>
-					<a href="https://hardware.mlh.io/events/mchacks-2018" target="_blank"><span>Hardware</span></a>
-					<a href="#api" id="api-btn"><span>APIs &amp Resourses</span></a-->
-					<!--a href="#prizes" id="prizes-btn"><span>Prizes</span></a-->
-					<a href="#faq" id="faq-btn"><span>FAQs</span></a>					
-					<a href="https://mchacks2018.devpost.com/" target="_blank">Devpost</a>
+					<a href="#announcements" id="announcements-btn">
+						<span>Announcements</span>
+					</a>
+					<a href="#map" id="map-btn">
+						<span>Map</span>
+						</a-->
+						<a href="#mentor" id="mentor-btn">
+							<span>Mentor Request</span>
+						</a>
+						<a href="https://hardware.mlh.io/events/mchacks-2018" target="_blank">
+							<span>Hardware</span>
+						</a>
+						<a href="#api" id="api-btn">
+							<span>APIs &amp Resourses</span>
+							</a-->
+							<!-- <a href="#prizes" id="prizes-btn"><span>Prizes</span></a> -->
+							<a href="#faq" id="faq-btn">
+								<span>FAQs</span>
+							</a>
+							<a href="https://mchacks2018.devpost.com/" target="_blank">Devpost</a>
 				</div>
 			</div>
 			<div id="content">
@@ -103,20 +118,47 @@
 					<img class="loading" src="images/loading-spinning-bubbles.svg" alt="Loading" />
 				</div>
 
+				<script>
+					function base()
+					{
+						document.getElementById("image").src="images/basement.png";
+					}
+					function main()
+					{
+						document.getElementById("image").src="images/main_floor.png";
+					}
+					function second()
+					{
+						document.getElementById("image").src="images/2nd_floor.png";
+					}
+					function third()
+					{
+						document.getElementById("image").src="images/3rd_floor.png";
+					}
+				</script>
+
+
 				<!-- Map Tab -->
 				<div id="map">
 					<div class="bronze">
-						<select id="floors">
-							<option value="images/basement.png">SSMU Basement</option>
-							<option value="images/main floor.png">SSMU Main Floor</option>
-							<option value="images/2nd floor.png">SSMU 2nd Floor</option>
-							<option value="images/3rd floor.png">SSMU 3rd Floor</option>
-							<!--option value="audi.png">Audi</option-->
-						</select>
+						<div class="floor_menu" style="text-align: center; font-size:22px">
+							<a onclick="base()">
+								<span>Basement</span>
+							</a>
+							<a onclick="main()">
+								<span>Main Floor</span>
+							</a>
+							<a onclick="second()">
+								<span>Second Floor</span>
+							</a>
+							<a onclick="third()">
+								<span>Third Floor</span>
+							</a>
+						</div>
 					</div>
 					<img id="image" src="images/basement.png" />
-					
 				</div>
+
 
 				<!-- Mentor Tab -->
 				<div id="mentor">
@@ -130,7 +172,8 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="tech">What do you need help with?</label><br/>
+									<label for="tech">What do you need help with?</label>
+									<br/>
 									<label class="radio-inline">
 										<input type="radio" name="mentorTechOption" id="web" value="web"> Web
 									</label>
@@ -223,134 +266,144 @@
 					
 				</div-->
 				<!-- API and Resources Tab -->
-				<div id="api">	
+				<div id="api">
 					<section id="sponsors-section">
-							<div class="container">
-									<div class="card-content">
-										<div class="col-md-12 section-heading text-center to-animate">
-											
-											<div class="sponsor to-animate">
-												<h2>Select the API or Resource you want more information about</h2>
-												<div class="bronze">
-													<a href="https://aws.amazon.com" target="_blank">
-														<img src="images/sponsors/amazon.png" alt="Image" class="img-responsive">
-													</a>
-													<h4>Information about AWS</h4>
-												</div>
-												<div class="bronze">
-													<a href="https://developer.ciscospark.com" target="_blank">
-														<img src="images/sponsors/ciscospark.png" alt="Image" class="img-responsive">
-													</a>
-													<h4> Information about the Cisco Spark API</h4>
-												</div>
-												<div class="bronze">
-													<a href="images/NuanceNIK.pdf" target="_blank">
-														<img src="images/sponsors/nuance.png" alt="Image" class="img-responsive">
-													</a>
-													<h4>Information on Nuance Nina Knowledge (NiK)</h4>
-												</div>
-												<div class="bronze">
-													<a href=" https://cloud.google.com/products/" target="_blank">
-														<img src="images/sponsors/google.png" alt="Image" class="img-responsive">
-													</a>
-													<h4>Information about the Google Cloud Platform</h4>
-												</div>											
-												<div class="bronze">
-													<a href="https://www.twilio.com/products" target="_blank">
-														<img src="images/sponsors/twilio.png" alt="Image" class="img-responsive">
-													</a>
-													<h4>placeholder</h4>
-												</div>
-												<div class="bronze">
-													<a href="images/dotTech.pdf" target="_blank">
-														<img src="images/sponsors/dottech.png" alt="Image" class="img-responsive">
-													</a>
-													<h4>Information about the .tech domain</h4>
-												</div>
-												<div class="bronze">
-													<a href="https://indico.io/non-commercial" target="_blank">
-														<img src="images/sponsors/indico.png" alt="Image" class="img-responsive">
-													</a>
-													<h4>Information about indico credit </h4>
-												</div>
-											</div>
+						<div class="container">
+							<div class="card-content">
+								<div class="col-md-12 section-heading text-center to-animate">
+
+									<div class="sponsor to-animate">
+										<h2>Select the API or Resource you want more information about</h2>
+										<div class="bronze">
+											<a href="https://aws.amazon.com" target="_blank">
+												<img src="images/sponsors/amazon.png" alt="Image" class="img-responsive">
+											</a>
+											<h4>Information about AWS</h4>
+										</div>
+										<div class="bronze">
+											<a href="https://developer.ciscospark.com" target="_blank">
+												<img src="images/sponsors/ciscospark.png" alt="Image" class="img-responsive">
+											</a>
+											<h4> Information about the Cisco Spark API</h4>
+										</div>
+										<div class="bronze">
+											<a href="images/NuanceNIK.pdf" target="_blank">
+												<img src="images/sponsors/nuance.png" alt="Image" class="img-responsive">
+											</a>
+											<h4>Information on Nuance Nina Knowledge (NiK)</h4>
+										</div>
+										<div class="bronze">
+											<a href=" https://cloud.google.com/products/" target="_blank">
+												<img src="images/sponsors/google.png" alt="Image" class="img-responsive">
+											</a>
+											<h4>Information about the Google Cloud Platform</h4>
+										</div>
+										<div class="bronze">
+											<a href="https://www.twilio.com/products" target="_blank">
+												<img src="images/sponsors/twilio.png" alt="Image" class="img-responsive">
+											</a>
+											<h4>placeholder</h4>
+										</div>
+										<div class="bronze">
+											<a href="images/dotTech.pdf" target="_blank">
+												<img src="images/sponsors/dottech.png" alt="Image" class="img-responsive">
+											</a>
+											<h4>Information about the .tech domain</h4>
+										</div>
+										<div class="bronze">
+											<a href="https://indico.io/non-commercial" target="_blank">
+												<img src="images/sponsors/indico.png" alt="Image" class="img-responsive">
+											</a>
+											<h4>Information about indico credit </h4>
 										</div>
 									</div>
+								</div>
 							</div>
+						</div>
 					</section>
 				</div>
 				<!-- FAQ Tab -->
 				<div id="faq">
-						<section id="fh5co-about" data-section="faqs">
-							<div class="col-md-12 section-heading text-center to-animate">
-									<div class="faqs">		
-											<div class="three-flex-parent to-animate"> 					
-												<div class="three-flex-child">												
-													<h3>Who can participate?</h3>
-													<p>All undergraduate and high school students are welcome! If you are under 18, we’ll need a parental consent form.</p>
-												</div>
-												<div class="three-flex-child">												
-													<h3>What should I bring?</h3>
-													<p>Your student ID, laptop, phone, chargers, some sleeping equipment like pillows and sleeping bags (we’ll be providing air mattresses).</p>
-												</div>
-												<div class="three-flex-child">												
-													<h3>When should I arrive?</h3>
-													<p>Registration will take place at the SSMU building (University Centre, 3480 McTavish St, Montreal, QC H3A 0E7). Out-of-town check-in begins at 9:00 am, and local check-in begins at 9:30 am.</p>
-												</div>
-											</div>
-											<div class="three-flex-parent to-animate"> 																	
-												<div class="three-flex-child">												
-													<h3>How do I get to McHacks?</h3>
-													<p>We’ll be sending buses to Toronto, Waterloo, and Boston. You can take the Via Rail to Montreal Central Station, a short walk from McGill campus. You can also take the Montreal metro to Peel station, our closest stop.</p>
-												</div>
-												<div class="three-flex-child">												
-													<h3>Are travel reimbursements provided?</h3>
-													<p>We are unable to provide travel reimbursements for McHacks this year. No exceptions will be granted.</p>
-												</div>
-												<div class="three-flex-child">												
-													<h3>Is there a standby line on the day of the event?</h3>
-													<p>If we have extra spots available, we will post on our Facebook page in the late morning (around 10:30-11AM). While we wish we could have each and every applicant at McHacks, we were unfortunately unable to book Hilbert’s Infinite Hotel this year.</p>
-												</div>
-											</div>																		
-											<div class="three-flex-parent to-animate"> 															
-												<div class="three-flex-child">												
-													<h3>I don’t have a team. Can I still participate?</h3>
-													<p>Of course, it’s not necessary to have a team prior to McHacks! We’ll have a fun team-forming session where you can find an awesome group of people to work with. Teams are welcome to have up to four people.</p>
-												</div>
-												<div class="three-flex-child">												
-													<h3>How much is this going to cost me?</h3>
-													<p>McHacks is completely free! We’ll be providing food, drink, wi-fi, and lots of awesome swag. :)</p>
-												</div>
-												<div class="three-flex-child">												
-													<h3>Can I keep working on a past project?</h3>
-													<p>No, participants should not be working on their projects before McHacks nor be developing pre-existing projects during the hackathon.</p>
-												</div>
-											</div>
-											<div class="three-flex-parent to-animate"> 															
-													<div class="three-flex-child">												
-														<h3>Is parking available?</h3>
-														<p>Parking is available at the McIntyre Garage (3655 Promenade Sir-William-Osler, Montreal, QC H3G 0B1). Rates are a max of $10.00 between 6:00 am and midnight on weekends.</p>
-													</div>
-											</div>
+					<section id="fh5co-about" data-section="faqs">
+						<div class="col-md-12 section-heading text-center to-animate">
+							<div class="faqs">
+								<div class="three-flex-parent to-animate">
+									<div class="three-flex-child">
+										<h3>Who can participate?</h3>
+										<p>All undergraduate and high school students are welcome! If you are under 18, we’ll need a parental consent form.</p>
 									</div>
-									<div class="row">
-											<div class="col-md-12 section-heading text-center" style="padding-bottom: 0px;">
-												<h3 class="to-animate">What if my question isn’t answered here? Contact us fb: <a href="https://www.facebook.com/mcgillhacks/"> McHacks on Facebook</a> </h3>
-											</div>
-										</div>
-										<div class="row row-bottom-padded-md">
-											<div class="col-md-12 section-heading text-center to-animate" style="padding-bottom: 0px; margin-bottom: 0px; margin-top: 20px;">
-												<a href="https://goo.gl/maps/5DiHVgbYHvS2">
-													<h3>McHacks 2018, 3480 rue McTavish, Montreal, QC, H3A 0E7, Canada</h3>
-												</a>
-											</div>
-										</div>
+									<div class="three-flex-child">
+										<h3>What should I bring?</h3>
+										<p>Your student ID, laptop, phone, chargers, some sleeping equipment like pillows and sleeping bags (we’ll be providing
+											air mattresses).</p>
+									</div>
+									<div class="three-flex-child">
+										<h3>When should I arrive?</h3>
+										<p>Registration will take place at the SSMU building (University Centre, 3480 McTavish St, Montreal, QC H3A 0E7).
+											Out-of-town check-in begins at 9:00 am, and local check-in begins at 9:30 am.</p>
+									</div>
+								</div>
+								<div class="three-flex-parent to-animate">
+									<div class="three-flex-child">
+										<h3>How do I get to McHacks?</h3>
+										<p>We’ll be sending buses to Toronto, Waterloo, and Boston. You can take the Via Rail to Montreal Central Station,
+											a short walk from McGill campus. You can also take the Montreal metro to Peel station, our closest stop.</p>
+									</div>
+									<div class="three-flex-child">
+										<h3>Are travel reimbursements provided?</h3>
+										<p>We are unable to provide travel reimbursements for McHacks this year. No exceptions will be granted.</p>
+									</div>
+									<div class="three-flex-child">
+										<h3>Is there a standby line on the day of the event?</h3>
+										<p>If we have extra spots available, we will post on our Facebook page in the late morning (around 10:30-11AM). While
+											we wish we could have each and every applicant at McHacks, we were unfortunately unable to book Hilbert’s Infinite
+											Hotel this year.</p>
+									</div>
+								</div>
+								<div class="three-flex-parent to-animate">
+									<div class="three-flex-child">
+										<h3>I don’t have a team. Can I still participate?</h3>
+										<p>Of course, it’s not necessary to have a team prior to McHacks! We’ll have a fun team-forming session where you
+											can find an awesome group of people to work with. Teams are welcome to have up to four people.</p>
+									</div>
+									<div class="three-flex-child">
+										<h3>How much is this going to cost me?</h3>
+										<p>McHacks is completely free! We’ll be providing food, drink, wi-fi, and lots of awesome swag. :)</p>
+									</div>
+									<div class="three-flex-child">
+										<h3>Can I keep working on a past project?</h3>
+										<p>No, participants should not be working on their projects before McHacks nor be developing pre-existing projects
+											during the hackathon.</p>
+									</div>
+								</div>
+								<div class="three-flex-parent to-animate">
+									<div class="three-flex-child">
+										<h3>Is parking available?</h3>
+										<p>Parking is available at the McIntyre Garage (3655 Promenade Sir-William-Osler, Montreal, QC H3G 0B1). Rates are
+											a max of $10.00 between 6:00 am and midnight on weekends.</p>
+									</div>
 								</div>
 							</div>
-					</section>	
+							<div class="row">
+								<div class="col-md-12 section-heading text-center" style="padding-bottom: 0px;">
+									<h3 class="to-animate">What if my question isn’t answered here? Contact us fb:
+										<a href="https://www.facebook.com/mcgillhacks/"> McHacks on Facebook</a>
+									</h3>
+								</div>
+							</div>
+							<div class="row row-bottom-padded-md">
+								<div class="col-md-12 section-heading text-center to-animate" style="padding-bottom: 0px; margin-bottom: 0px; margin-top: 20px;">
+									<a href="https://goo.gl/maps/5DiHVgbYHvS2">
+										<h3>McHacks 2018, 3480 rue McTavish, Montreal, QC, H3A 0E7, Canada</h3>
+									</a>
+								</div>
+							</div>
+						</div>
 				</div>
+				</section>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
@@ -363,4 +416,5 @@
 	<script src="js/script.js"></script>
 	<script src="js/timer.js"></script>
 </body>
+
 </html>
