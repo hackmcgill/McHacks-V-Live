@@ -147,9 +147,9 @@ $(function() {
 			$("#mobile-menu-bar-title").text("Map");
 		else if (tab === "#mentor")
 			$("#mobile-menu-bar-title").text("Mentor Request");
-		else if (tab = "#faq")
+		else if (tab === "#faq")
 			$("#mobile-menu-bar-title").text("FAQs");
-		else if (tab = "#api")
+		else if (tab === "#api")
 			$("#mobile-menu-bar-title").text("APIs & Resources");
 		
 		$("#mobile-menu").modal("hide");
