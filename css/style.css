@@ -47,8 +47,9 @@ body>.row {
 #sidebar {
 	/*background-color: #34495e;*/
 	/* Photo Courtesy Of McGill University */
-	background-image: url('https://hackmcgill.github.io/McHacks-V-Live/images/winterbg.png');
+	background-image: url('https://hackmcgill.github.io/McHacks-V-Live/images/mcgill.png');
 	background-size: cover;
+	background-position: relative;
 	height: 100%;
 	padding-right: 0;
 }
