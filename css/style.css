@@ -150,7 +150,7 @@ body>.row {
 	background: linear-gradient(to bottom right, #ffffff, #fcfcfc);
 	border-radius: 2.5px;
 	opacity: 0.92;
-	border-top: #f9b3ad 7px solid;
+	border-top: #F07C74 7px solid;
 	/*height: 150px;*/
 	/*top: 0;*/
 }
@@ -283,9 +283,9 @@ body>.row {
 	width: 100%;
 	/*background-color: rgba(52, 152, 219, 0.9);*/
 	/* background: linear-gradient(to bottom right, #f9b3ad, #f07c74); */
-	background: #f9b3ad;
+	background: #F07C74;
 	border-radius: 2px;
-	color: #f9b3ad;
+	color: #F07C74;
 	/*box-shadow: 1px 1px 0.5px #2c3e50;*/
 	margin-bottom: 2.5%;
 	margin-left: 0 !important;
@@ -322,7 +322,7 @@ body>.row {
 	margin-right: 15px;
 	box-shadow: 1px 1px 0.5px #ababab;
 	/* background: linear-gradient(to bottom right, #E2E4F6, #BEB8EB); */
-	background: #f9b3ad;
+	background: #F07C74;
 }
 
 .prizes-card-icon>i {
@@ -533,7 +533,7 @@ body>.row {
 /* Sponsors */
 #sponsors-section {
 	display: block;
-} 
+}
 
 .fh5co-animated {
 	-webkit-animation-duration: .3s;
@@ -541,9 +541,9 @@ body>.row {
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
   }
-  .classWithPad { 
-	margin:10px; 
-	margin:10px; 
+  .classWithPad {
+	margin:10px;
+	margin:10px;
   }
   .platinum {
 	flex-basis: 80%;
@@ -570,7 +570,7 @@ body>.row {
 	align-self: center;
 	margin: 2%;
   }
-  
+
   .sponsor {
 	display: flex;
 	flex-direction: row;
@@ -580,11 +580,11 @@ body>.row {
 	flex-wrap: wrap;
 	color: #636363;
   }
-  
+
   .center{
 	align-self: center
   }
-  
+
   .three-flex-parent {
 	display: flex;
 	flex-direction: row;
@@ -602,7 +602,7 @@ body>.row {
   #sponsors .card-content{
 	  color: #636363;
   }
-  
+
   .transparency {
 	  opacity: 0.0;
   }
