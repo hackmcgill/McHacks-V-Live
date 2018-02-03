@@ -41,7 +41,7 @@ var schedule = [
     },
     {
         "title": "Lunch in Sadies",
-        "description": "Come have lunch at", 
+        "description": "Come have lunch at",
         "day": "Sat",
         "starts": "12:30 PM",
         "duration": 60,
@@ -88,8 +88,8 @@ var schedule = [
         "orientation": "left"
     },
     {
-        "title": "Cup Stacking in SSMU 108",
-        "description": "MHL Cup Stacking",
+        "title": "Werewolf in SSMU 108",
+        "description": "MLH Werewolf",
         "day": "Sat",
         "starts": "5:00 PM",
         "duration": 120,
