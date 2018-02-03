@@ -39,7 +39,7 @@
 					<a href="#api">APIs &amp Resourses</a-->
 					<!--a href="#prizes">Prizes</a-->
 					<a href="https://hardware.mlh.io/events/mchacks-2018">Hardware</a>
-					<a href="#faq">FAQs</a>	
+					<a href="#faq">FAQs</a>
 					<a href="https://mchacks2018.devpost.com/" target="_blank">Devpost</a>
 				</div>
 			</div>
@@ -93,7 +93,7 @@
 					<a href="https://hardware.mlh.io/events/mchacks-2018" target="_blank"><span>Hardware</span></a>
 					<a href="#api" id="api-btn"><span>APIs &amp Resourses</span></a-->
 					<!--a href="#prizes" id="prizes-btn"><span>Prizes</span></a-->
-					<a href="#faq" id="faq-btn"><span>FAQs</span></a>					
+					<a href="#faq" id="faq-btn"><span>FAQs</span></a>
 					<a href="https://mchacks2018.devpost.com/" target="_blank">Devpost</a>
 				</div>
 			</div>
@@ -142,6 +142,10 @@
 								{
 									document.getElementById("image").src="images/3rd_floor.png";
 								}
+								function outdoors()
+								{
+									document.getElementById("image").src="images/ssmu-mcmed.png";
+								}
 							</script>
 					<div class="startup">
 							<div class="floor_menu" style="text-align: center; font-size:22px">
@@ -152,15 +156,18 @@
 									<span>Main Floor</span>
 								</a>
 								<a onclick="second()">
-									<span>Second Floor</span>
+									<span>2nd Floor</span>
 								</a>
 								<a onclick="third()">
-									<span>Third Floor</span>
+									<span>3rd Floor</span>
+								</a>
+								<a onclick="outdoors()">
+									<span>Outdoor Path</span>
 								</a>
 							</div>
 					</div>
 					<img id="image" src="images/3rd_floor.png" />
-					
+
 				</div>
 
 				<!-- Mentor Tab -->
@@ -244,7 +251,7 @@
 									<div class="card">
 											  <h3>Muse Headbands</h3>
 											  <h4>This prize is awarded to the best hack that can energize the future on health and wellness and is sponsored by Muse.</h4>
-									</div>		
+									</div>
 								</div>
 							<div class="col s12 m7">
 								<h1>Custom Prizes</h1>
@@ -262,18 +269,18 @@
 									<div class="card">
 											  <h3>Telus Custom Prize</h3>
 											  <h4>This prize NEEDS A DESCRIPTION and is sponsored and judged by Telus</h4>
-									</div>		
+									</div>
 							</div>
 					</section>
-					
+
 				</div-->
 				<!-- API and Resources Tab -->
-				<div id="api">	
+				<div id="api">
 					<section id="sponsors-section">
 							<div class="container">
 									<div class="card-content">
 										<div class="col-md-12 section-heading text-center to-animate">
-											
+
 											<div class="sponsor to-animate">
 												<h2>Select the API or Resource you want more information about</h2>
 												<div class="bronze">
@@ -299,7 +306,7 @@
 														<img src="images/sponsors/google.png" alt="Image" class="img-responsive">
 													</a>
 													<h4>Information about the Google Cloud Platform</h4>
-												</div>											
+												</div>
 												<div class="bronze">
 													<a href="https://www.twilio.com/products" target="_blank">
 														<img src="images/sponsors/twilio.png" alt="Image" class="img-responsive">
@@ -336,7 +343,7 @@
 										</div>
 										<div id="collapseOne" class="panel-collapse collapse in">
 											<div class="panel-body">
-													We are unable to provide travel reimbursements for McHacks this year. No exceptions will be granted. 
+													We are unable to provide travel reimbursements for McHacks this year. No exceptions will be granted.
 											</div>
 										</div>
 									</div>
@@ -462,13 +469,13 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<style>
 								.faqHeader {
 									font-size: 27px;
 									margin: 20px;
 								}
-							
+
 								.panel-heading [data-toggle="collapse"]:after {
 									font-family: 'Glyphicons Halflings';
 									content: "\e072"; /* "play" icon */
@@ -483,7 +490,7 @@
 									-o-transform: rotate(-90deg);
 									transform: rotate(-90deg);
 								}
-							
+
 								.panel-heading [data-toggle="collapse"].collapsed:after {
 									/* rotate "play" icon from > (right arrow) to ^ (up arrow) */
 									-webkit-transform: rotate(90deg);
@@ -493,7 +500,7 @@
 									transform: rotate(90deg);
 									color: #454444;
 								}
-							</style>	
+							</style>
 				</div>
 			</div>
 		</div>
