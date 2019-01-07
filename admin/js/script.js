@@ -1,10 +1,10 @@
 // Firebase config
 var config = {
-	apiKey: "AIzaSyAOnVh1njYjjcksq5mtAarI8vfMPckY6q0",
-	authDomain: "mchacks-v-live-832b3.firebaseapp.com",
-	databaseURL: "https://mchacks-v-live-832b3.firebaseio.com/",
-	storageBucket: "mchacks-v-live-832b3.appspot.com",
-	messagingSenderId: "137852911349"
+	apiKey: "",
+	authDomain: "",
+	databaseURL: "",
+	storageBucket: "",
+	messagingSenderId: "",
 };
 firebase.initializeApp(config);
 var database = firebase.database();
